@@ -35,21 +35,22 @@ public class Pow {
     static void main() {
         double x = 2.10000;
         int n = -2;
-        int a = n;
-        if(n < 0){
-            a = n * -1;
-        }
-        double ans = getPow(x, a, 1.0);
-        if(n < 0){
-            ans = 1 / ans;
-        }
-        System.out.println(ans);
+        System.out.println(myPow(x, n));
     }
 
-    static double getPow(double x, int n, double a){
+    static double myPow(double x, int n) {
+        return getPow(x,(long)n);
+    }
+
+    static double getPow(double x, long n){
         if(n == 0){
-            return a;
+            return 1;
         }
-        return getPow(x, n - 1, a * x);
+        if(n < 0){
+            return 1 / getPow(x, -n);
+        }
+        if(n % 2 != 0)
+            return x * getPow(x * x, (n - 1) / 2);
+        return getPow(x * x, n / 2);
     }
 }
