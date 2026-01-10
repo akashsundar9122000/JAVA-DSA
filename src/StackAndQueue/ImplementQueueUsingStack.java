@@ -45,4 +45,8 @@ public class ImplementQueueUsingStack {
      * Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.
      */
     //circular queue
+
+    //implement stack using queue
+    //225
+    //https://leetcode.com/problems/implement-stack-using-queues/description/
 }
