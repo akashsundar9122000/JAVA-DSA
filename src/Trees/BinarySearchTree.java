@@ -133,7 +133,7 @@ public class BinarySearchTree {
             return;
         }
         postOrderTraversal(node.left);
-        preOrderTraversal(node.right);
+        postOrderTraversal(node.right);
         System.out.print(node.value + " ");
     }
 
