@@ -7,7 +7,7 @@
  * Data   -> stale-while-revalidate (instant offline, refreshes in background)
  */
 
-const VERSION = 'ca37025-j3r6';
+const VERSION = '4b957a5-j3sb';
 const CACHE = `dsa-deck-${VERSION}`;
 
 const SHELL = [

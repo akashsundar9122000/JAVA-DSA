@@ -576,7 +576,8 @@ function viewProblem(id) {
       <a class="backlink" href="#/browse/${p.category}">
         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 5l-5 5 5 5"/></svg>${esc(catName(p.category))}
       </a>
-      <span class="pd-crumb">${p.categoryPath || 'src'}</span>
+      ${p.categoryPath && p.categoryPath !== catName(p.category)
+        ? `<span class="pd-crumb">${esc(p.categoryPath)}</span>` : ''}
     </div>
 
     <h1 class="pd-title">${num}${esc(p.title)}</h1>
