@@ -18,6 +18,12 @@ export const GOLDEN = {
   mainKind: { compact: 176, args: 2, none: 11 },
   packagePathMismatch: 0,
   parseErrors: 0,
+  // Phase 2. neetcodeJoins is the count of problems matched to a curated
+  // NeetCode video by slug; if this drops, the join or the slugs broke.
+  neetcodeJoins: 70,
+  blind75: 17,
+  neetcode150: 35,
+  patternsInUse: 18,
   // Specific files whose classification is load-bearing.
   cases: [
     {
@@ -89,6 +95,23 @@ export function runSelftest(data, golden) {
     args: p.filter((x) => x.mainKind === 'args').length,
     none: p.filter((x) => x.mainKind === 'none').length,
   }, golden.mainKind);
+
+  // --- phase 2: patterns and media -------------------------------------
+  check('every problem has a pattern', p.filter((x) => !x.pattern).length, 0);
+  check('patterns in use', data.patterns.length, golden.patternsInUse);
+  check('neetcode video joins', p.filter((x) => x.video?.source === 'neetcode').length, golden.neetcodeJoins);
+  check('blind 75 tagged', p.filter((x) => x.lists?.blind75).length, golden.blind75);
+  check('neetcode 150 tagged', p.filter((x) => x.lists?.neetcode150).length, golden.neetcode150);
+
+  // Nothing unverified may ship: a wrong id renders as a broken player.
+  const unverified = p.filter((x) => x.video && !x.video.verifiedAt);
+  check('videos all oEmbed-verified', unverified.map((x) => x.video.id), []);
+
+  // Every pattern needs a playlist, and each must have passed verification.
+  const noPlaylist = data.patterns.filter((x) => !x.playlist).map((x) => x.id);
+  check('every pattern has a playlist', noPlaylist, []);
+  const unverifiedPl = data.patterns.filter((x) => x.playlist && !x.playlist.verifiedAt).map((x) => x.id);
+  check('playlists all verified', unverifiedPl, []);
 
   for (const c of golden.cases) {
     const rec = byPath[c.path];

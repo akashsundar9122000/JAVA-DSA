@@ -130,10 +130,12 @@ function highlightJava(source, { from = 1, numbers = true } = {}) {
  * guarded and the app must render correctly with nothing stored.
  */
 
-const LS_KEY = 'dsa.deck.v1';
+const LS_KEY = 'dsa.deck.v2';
+const LS_KEY_V1 = 'dsa.deck.v1';
+const LOG_CAP = 2000;
 
 const store = {
-  data: { progress: {}, prefs: {} },
+  data: { progress: {}, prefs: {}, log: [], watched: {} },
   ok: true,
 
   load() {
@@ -143,6 +145,25 @@ const store = {
         const parsed = JSON.parse(raw);
         this.data.progress = parsed.progress ?? {};
         this.data.prefs = parsed.prefs ?? {};
+        this.data.log = Array.isArray(parsed.log) ? parsed.log : [];
+        this.data.watched = parsed.watched ?? {};
+        return;
+      }
+
+      // Migrate v1, which stored only the latest grade per problem and no
+      // history. Seed one log entry per record from its `last` date so the
+      // heatmap has something to show, and keep every grade intact.
+      const old = localStorage.getItem(LS_KEY_V1);
+      if (old) {
+        const parsed = JSON.parse(old);
+        this.data.progress = parsed.progress ?? {};
+        this.data.prefs = parsed.prefs ?? {};
+        this.data.log = Object.entries(this.data.progress)
+          .filter(([, r]) => r?.last)
+          .map(([id, r]) => ({ id, grade: r.grade ?? 3, at: r.last }));
+        this.data.watched = {};
+        this.save();
+        this.migrated = true;
       }
     } catch { this.ok = false; }
   },
@@ -153,6 +174,20 @@ const store = {
   },
 
   get(id) { return this.data.progress[id] ?? null; },
+
+  /** Append a review to the history that drives the heatmap and streaks. */
+  logReview(id, grade) {
+    this.data.log.push({ id, grade, at: todayISO() });
+    // Oldest entries fall off first; the heatmap only shows ~6 months anyway.
+    if (this.data.log.length > LOG_CAP) this.data.log = this.data.log.slice(-LOG_CAP);
+  },
+
+  watch(id) {
+    if (this.data.watched[id]) return;
+    this.data.watched[id] = todayISO();
+    this.save();
+  },
+  isWatched(id) { return !!this.data.watched[id]; },
   pref(k, v) {
     if (v === undefined) return this.data.prefs[k];
     this.data.prefs[k] = v;
@@ -194,6 +229,7 @@ function grade(id, g) {
     last: todayISO(),
     due: addDays(todayISO(), interval),
   };
+  store.logReview(id, g);
   store.save();
   return interval;
 }
@@ -209,6 +245,7 @@ const isDue = (id) => {
 const app = {
   data: null,
   byId: new Map(),
+  patternById: new Map(),
   index: [],
   route: { name: 'today', arg: null },
   query: '',
@@ -407,6 +444,123 @@ function teachesBlock(p) {
   </section>`;
 }
 
+// --- pattern helpers -------------------------------------------------------
+
+const patternOf = (p) => app.patternById.get(p.pattern) ?? null;
+const patternName = (id) => app.patternById.get(id)?.name ?? id;
+
+// --- video -----------------------------------------------------------------
+
+const YT_THUMB = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+const YT_SEARCH = (q) => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
+
+/**
+ * A poster standing in for the iframe. Nothing loads from YouTube until the
+ * play button is pressed, and only one player is ever mounted, so a long list
+ * of problems stays cheap on a phone.
+ */
+function player(v, { watched = false } = {}) {
+  const offline = !navigator.onLine;
+  return `<div class="video">
+    <div class="vframe" data-vid="${v.id}">
+      ${offline ? `<div class="voffline">
+          <b>Video needs a connection</b>
+          <span>The rest of this page works offline.</span>
+        </div>`
+        : `<button class="vposter" type="button" data-act="play" data-vid="${v.id}" aria-label="Play: ${esc(v.title ?? 'explanation')}">
+            <img src="${YT_THUMB(v.id)}" alt="" loading="lazy" decoding="async" width="480" height="360">
+            <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="vlabel">
+              <b>${esc(v.title ?? 'Explanation')}</b>
+              <span>${esc(v.channel ?? 'YouTube')}${v.kind === 'concept' ? ' · topic explainer' : ''}</span>
+            </span>
+          </button>`}
+    </div>
+    <div class="vmeta">
+      <span class="who">${esc(v.channel ?? 'YouTube')}</span>
+      ${v.kind === 'concept' ? '<span class="chip">topic explainer, not this problem</span>' : ''}
+      ${watched ? '<span class="chip">watched</span>' : ''}
+      <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">open on YouTube</a>
+    </div>
+  </div>`;
+}
+
+function videoBlock(p) {
+  const pat = patternOf(p);
+  const pl = pat?.playlist;
+  const parts = [];
+
+  if (p.video) {
+    parts.push(player(p.video, { watched: store.isWatched(p.id) }));
+  } else if (p.conceptVideo) {
+    parts.push(player(p.conceptVideo, { watched: store.isWatched(p.id) }));
+  } else {
+    // No curated video for this one. Offer the pattern's playlist and a real
+    // search — never a fabricated video id.
+    parts.push(`<div class="empty" style="padding:18px">
+      <h3>No curated video for this one</h3>
+      <p>Nothing in the trusted channels maps to this problem specifically. The pattern playlist below covers the technique, or search YouTube directly.</p>
+      <div class="setup-row" style="justify-content:center">
+        <a class="bigbtn ghost" href="${YT_SEARCH(`${p.title} leetcode`)}" target="_blank" rel="noopener">Search YouTube</a>
+        ${pl ? `<a class="bigbtn ghost" href="#/learn">Pattern playlist</a>` : ''}
+      </div>
+    </div>`);
+  }
+
+  if (pl) {
+    parts.push(`<div class="vmeta" style="margin-top:10px">
+      <span>Pattern course:</span>
+      <a href="https://www.youtube.com/playlist?list=${pl.playlistId}" target="_blank" rel="noopener">${esc(pl.verifiedTitle ?? pat.name)}</a>
+      <span class="kindtag ${pl.kind}">${pl.kind === 'dedicated' ? 'dedicated' : 'full course'}</span>
+    </div>`);
+  }
+
+  return `<section class="block"><h2 class="block-h">Video explanation</h2>${parts.join('')}</section>`;
+}
+
+// --- leetcode enrichment ---------------------------------------------------
+
+function hintsBlock(p) {
+  if (!p.hints?.length) return '';
+  return `<section class="block">
+    <h2 class="block-h">Hints <span class="chip">${p.hints.length}</span></h2>
+    <details class="hint" style="padding:0;border:0;background:none">
+      <summary style="cursor:pointer;font:500 12px var(--mono);color:var(--accent);padding:4px 0">Reveal hints one at a time</summary>
+      <div style="margin-top:8px">
+        ${p.hints.map((hh, i) => `<details class="hint"><summary style="cursor:pointer"><span class="hint-n">Hint ${i + 1}</span></summary><div style="margin-top:6px">${esc(stripTags(hh))}</div></details>`).join('')}
+      </div>
+    </details>
+  </section>`;
+}
+
+/** LeetCode hints arrive with HTML in them; render as text. */
+function stripTags(html) {
+  return String(html)
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .trim();
+}
+
+function tagsBlock(p) {
+  if (!p.topicTags?.length) return '';
+  return `<section class="block">
+    <h2 class="block-h">LeetCode topics</h2>
+    <div class="tagrow">${p.topicTags.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+  </section>`;
+}
+
+function similarBlock(p) {
+  if (!p.similar?.length) return '';
+  const rows = p.similar.slice(0, 6).map((s) => {
+    const mine = app.data.problems.find((x) => x.slug === s.slug);
+    return mine
+      ? `<a class="sim" href="#/p/${mine.id}">${esc(s.title)} ${diffChip(s.difficulty)}<span class="mine">in your repo →</span></a>`
+      : `<a class="sim" href="https://leetcode.com/problems/${s.slug}/description/" target="_blank" rel="noopener">${esc(s.title)} ${diffChip(s.difficulty)}<span class="ext">not solved yet ↗</span></a>`;
+  }).join('');
+  return `<section class="block"><h2 class="block-h">Similar problems</h2><div class="simlist">${rows}</div></section>`;
+}
+
 function constraintsBlock(p) {
   if (!p.constraints.length) return '';
   return `<section class="block"><h2 class="block-h">Constraints</h2>
@@ -584,6 +738,10 @@ function viewProblem(id) {
 
     <div class="pd-meta">
       ${diffChip(p.difficulty)}
+      <a class="chip" href="#/pattern/${p.pattern}">${esc(patternName(p.pattern))}</a>
+      ${p.acRate ? `<span class="chip" title="LeetCode acceptance rate">${esc(p.acRate)} accepted</span>` : ''}
+      ${p.lists?.blind75 ? '<span class="chip">Blind 75</span>' : ''}
+      ${p.lists?.neetcode150 && !p.lists?.blind75 ? '<span class="chip">NeetCode 150</span>' : ''}
       ${p.companies.map((c) => `<span class="chip">${esc(c)}</span>`).join('')}
       ${p.status ? `<span class="chip">${p.status === 'tle' ? 'time limit exceeded' : 'incomplete'}</span>` : ''}
       ${p.solvedDate ? `<span class="chip">solved ${esc(p.solvedDate)}</span>` : ''}
@@ -595,8 +753,10 @@ function viewProblem(id) {
     ${statementBlock(p)}
     ${examplesBlock(p)}
     ${constraintsBlock(p)}
+    ${hintsBlock(p)}
     ${notesBlock(p)}
     ${teachesBlock(p)}
+    ${videoBlock(p)}
 
     <section class="block">
       <h2 class="block-h">Solution</h2>
@@ -604,6 +764,8 @@ function viewProblem(id) {
     </section>
 
     ${altBlock(p)}
+    ${similarBlock(p)}
+    ${tagsBlock(p)}
 
     <div class="setup-row" style="margin:24px 0 8px">
       ${prev ? `<a class="bigbtn ghost" href="#/p/${prev.id}">← ${esc(prev.title.slice(0, 26))}</a>` : ''}
@@ -619,8 +781,12 @@ function startSession(scope) {
   let pool;
 
   if (scope === 'due') pool = all.filter((p) => isDue(p.id));
-  else if (scope && scope !== 'all') pool = all.filter((p) => p.category === scope);
-  else pool = all;
+  else if (scope && scope !== 'all') {
+    // A scope is a pattern id or, for older links, a folder id.
+    pool = app.patternById.has(scope)
+      ? all.filter((p) => p.pattern === scope)
+      : all.filter((p) => p.category === scope);
+  } else pool = all;
 
   // Prefer material that is due or never seen, then fill with the rest.
   const priority = pool.filter((p) => isDue(p.id) || !store.get(p.id));
@@ -672,7 +838,7 @@ function viewCards(scope) {
     <div class="card-progress">
       <span>Card ${s.i + 1} / ${s.deck.length}</span>
       <span class="bar"><i style="width:${pct}%"></i></span>
-      <span>${esc(s.scope === 'due' ? 'due queue' : s.scope === 'all' ? 'all topics' : catName(s.scope))}</span>
+      <span>${esc(s.scope === 'due' ? 'due queue' : s.scope === 'all' ? 'all topics' : (app.patternById.get(s.scope)?.name ?? catName(s.scope)))}</span>
     </div>
 
     <div class="cardface">
@@ -714,77 +880,441 @@ const truncate = (s, n) => (s.length <= n ? s : s.slice(0, n).replace(/\s+\S*$/,
 
 /* ---- progress ------------------------------------------------------------ */
 
-function viewStats() {
-  const all = app.data.problems.filter((p) => p.kind !== 'scratch');
-  const cnt = { solid: 0, shaky: 0, forgot: 0 };
-  for (const p of all) { const s = statusOf(p.id); if (s) cnt[s]++; }
-  const none = all.length - cnt.solid - cnt.shaky - cnt.forgot;
-  const reps = Object.values(store.data.progress).reduce((n, r) => n + (r.reps ?? 0), 0);
+/* ---- pattern browse ------------------------------------------------------ */
 
-  const upcoming = {};
-  for (const p of all) {
-    const r = store.get(p.id);
-    if (!r) continue;
-    const d = Math.max(0, daysBetween(todayISO(), r.due));
-    const bucket = d === 0 ? 'today' : d === 1 ? 'tomorrow' : d <= 7 ? 'this week' : d <= 30 ? 'this month' : 'later';
-    upcoming[bucket] = (upcoming[bucket] ?? 0) + 1;
+function masteryOf(items) {
+  const c = { solid: 0, shaky: 0, forgot: 0 };
+  for (const p of items) { const st = statusOf(p.id); if (st) c[st]++; }
+  c.none = items.length - c.solid - c.shaky - c.forgot;
+  c.total = items.length;
+  return c;
+}
+
+function miniBar(c) {
+  if (!c.total) return '';
+  const w = (n) => `${(n / c.total) * 100}%`;
+  return `<span class="mini">
+    ${c.solid ? `<i class="solid" style="width:${w(c.solid)}"></i>` : ''}
+    ${c.shaky ? `<i class="shaky" style="width:${w(c.shaky)}"></i>` : ''}
+    ${c.forgot ? `<i class="forgot" style="width:${w(c.forgot)}"></i>` : ''}
+  </span>`;
+}
+
+function playlistLine(pt) {
+  const pl = pt.playlist;
+  if (!pl) return '';
+  return `<div class="vmeta">
+    <a href="https://www.youtube.com/playlist?list=${pl.playlistId}" target="_blank" rel="noopener">${esc(pl.verifiedTitle ?? pt.name)}</a>
+    <span class="who">${esc(pl.verifiedChannel ?? pl.channel ?? '')}</span>
+    <span class="kindtag ${pl.kind}">${pl.kind === 'dedicated' ? 'dedicated' : 'full course'}</span>
+  </div>`;
+}
+
+function viewPattern(id) {
+  const pt = app.patternById.get(id);
+  if (!pt) return `<div class="wrap"><div class="empty"><h3>Unknown pattern</h3><p>No pattern with id <code>${esc(id ?? '')}</code>.</p><a class="bigbtn ghost" href="#/learn">All patterns</a></div></div>`;
+
+  const items = app.data.problems.filter((p) => p.pattern === id);
+  app.listing = items;
+  const c = masteryOf(items);
+
+  return `<div class="wrap">
+    <div class="pagehead"><span class="eyebrow">Algorithm pattern</span></div>
+    <div class="pagehead">
+      <h1>${esc(pt.name)}</h1>
+      <p>${plural(items.length, 'problem')} · ${c.solid} solid${c.none ? ` · ${c.none} untouched` : ''}</p>
+    </div>
+
+    <p class="prose dim" style="margin:10px 0 0;max-width:66ch">${esc(pt.blurb)}</p>
+    ${miniBar(c)}
+    ${playlistLine(pt)}
+
+    <div class="setup-row" style="margin-top:14px">
+      <a class="bigbtn" href="#/cards/${id}">Drill this pattern</a>
+      <a class="bigbtn ghost" href="#/learn">Playlists</a>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2>Problems</h2>
+        <span class="count">${pt.counts.withVideo} with a video</span>
+      </div>
+      ${problemList(items)}
+    </div>
+  </div>`;
+}
+
+/* ---- learn: a playlist per pattern --------------------------------------- */
+
+function viewLearn() {
+  const cards = (app.data.patterns ?? []).map((pt) => {
+    const items = app.data.problems.filter((p) => p.pattern === pt.id);
+    const c = masteryOf(items);
+    const pl = pt.playlist;
+
+    return `<article class="plcard">
+      <div class="plcard-head">
+        <div class="plcard-top">
+          <h3>${esc(pt.name)}</h3>
+          <span class="plcard-n">${plural(items.length, 'problem')}</span>
+        </div>
+        <p class="plcard-blurb">${esc(pt.blurb)}</p>
+        ${miniBar(c)}
+        <p class="plcard-n" style="margin:0">${c.solid} solid · ${c.shaky + c.forgot} needs work · ${c.none} untouched</p>
+      </div>
+
+      <div class="plcard-body">
+        ${pl ? `<div class="vframe" data-vid="pl-${pt.id}">
+            <button class="vposter" type="button" data-act="play-list" data-pl="${pl.playlistId}" aria-label="Play playlist: ${esc(pl.verifiedTitle ?? pt.name)}">
+              ${pl.posterVideoId ? `<img src="${YT_THUMB(pl.posterVideoId)}" alt="" loading="lazy" decoding="async" width="480" height="360">` : ''}
+              <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="vlabel">
+                <b>${esc(pl.verifiedTitle ?? pt.name)}</b>
+                <span>${esc(pl.verifiedChannel ?? pl.channel ?? '')}</span>
+              </span>
+            </button>
+          </div>
+          <p class="plcard-why" style="margin-top:9px">${esc(pl.why ?? '')}</p>`
+        : '<p class="plcard-why">No curated playlist for this pattern yet.</p>'}
+      </div>
+
+      <div class="plcard-foot">
+        ${pl ? `<span class="kindtag ${pl.kind}">${pl.kind === 'dedicated' ? 'dedicated playlist' : 'full course'}</span>` : ''}
+        <a class="extlink" href="#/pattern/${pt.id}">Problems</a>
+        <a class="extlink" href="#/cards/${pt.id}">Drill</a>
+        ${pl ? `<a class="extlink" href="https://www.youtube.com/playlist?list=${pl.playlistId}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 4h5v5M16 4l-7 7M8 5H4v11h11v-4"/></svg>YouTube</a>` : ''}
+      </div>
+    </article>`;
+  }).join('');
+
+  const ded = (app.data.patterns ?? []).filter((p) => p.playlist?.kind === 'dedicated').length;
+
+  return `<div class="wrap">
+    <div class="pagehead"><span class="eyebrow">Curated · NeetCode · take U forward · Aditya Verma · Kunal Kushwaha</span></div>
+    <div class="pagehead">
+      <h1>Learn by pattern</h1>
+      <p>${app.data.patterns.length} patterns · ${ded} with a dedicated playlist</p>
+    </div>
+    <p class="prose dim" style="margin:10px 0 0;max-width:66ch">Every playlist here was resolved against YouTube and is labelled with what it actually is: a playlist dedicated to the pattern, or a full course that covers it among other topics.</p>
+    <div class="section"><div class="learngrid">${cards}</div></div>
+  </div>`;
+}
+
+/* ---- dashboard ----------------------------------------------------------- */
+
+/** Reviews per day, from the log. */
+function activityByDay() {
+  const map = new Map();
+  for (const e of store.data.log ?? []) {
+    if (!e?.at) continue;
+    map.set(e.at, (map.get(e.at) ?? 0) + 1);
+  }
+  return map;
+}
+
+function streaks(byDay) {
+  const days = [...byDay.keys()].sort();
+  if (!days.length) return { current: 0, longest: 0 };
+
+  let longest = 1;
+  let run = 1;
+  for (let i = 1; i < days.length; i++) {
+    run = daysBetween(days[i - 1], days[i]) === 1 ? run + 1 : 1;
+    if (run > longest) longest = run;
   }
 
-  const meta = app.data.meta;
+  // A streak stays alive if the last review was today or yesterday.
+  const last = days[days.length - 1];
+  const gap = daysBetween(last, todayISO());
+  let current = 0;
+  if (gap <= 1) {
+    current = 1;
+    for (let i = days.length - 1; i > 0; i--) {
+      if (daysBetween(days[i - 1], days[i]) === 1) current++;
+      else break;
+    }
+  }
+  return { current, longest };
+}
 
-  return `<div class="wrap narrow">
-    <div class="pagehead"><h1>Progress</h1><p>${plural(reps, 'review')} logged across ${plural(all.length, 'problem')}.</p></div>
+/**
+ * 26-week activity grid. Sequential single-hue ramp with monotonic lightness
+ * (see --heat-* tokens), so density reads correctly in both themes and for
+ * colour-vision deficiencies.
+ */
+function heatmap(byDay) {
+  const WEEKS = 26;
+  const CELL = 13;
+  const GAP = 3;
+  const LEFT = 26;
+  const TOP = 16;
+
+  // Start on the Sunday that begins the window.
+  const end = new Date(todayISO() + 'T00:00:00');
+  const start = new Date(end);
+  start.setDate(start.getDate() - (WEEKS * 7 - 1));
+  start.setDate(start.getDate() - start.getDay());
+
+  const max = Math.max(1, ...byDay.values());
+  const step = (n) => (n === 0 ? 0 : n >= max ? 4 : 1 + Math.floor((n / max) * 3));
+
+  const w = LEFT + WEEKS * (CELL + GAP);
+  const h = TOP + 7 * (CELL + GAP) + 14;
+
+  let cells = '';
+  let months = '';
+  let lastMonth = -1;
+
+  for (let wk = 0; wk < WEEKS; wk++) {
+    for (let d = 0; d < 7; d++) {
+      const day = new Date(start);
+      day.setDate(day.getDate() + wk * 7 + d);
+      if (day > end) continue;
+      const iso = day.toISOString().slice(0, 10);
+      const n = byDay.get(iso) ?? 0;
+      const x = LEFT + wk * (CELL + GAP);
+      const y = TOP + d * (CELL + GAP);
+      cells += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" fill="var(--heat-${step(n)})"><title>${iso}: ${plural(n, 'review')}</title></rect>`;
+
+      if (d === 0) {
+        const m = day.getMonth();
+        if (m !== lastMonth) {
+          lastMonth = m;
+          months += `<text x="${x}" y="${TOP - 5}">${day.toLocaleString('en', { month: 'short' })}</text>`;
+        }
+      }
+    }
+  }
+
+  const dayLabels = ['Mon', 'Wed', 'Fri']
+    .map((lab, i) => `<text x="0" y="${TOP + (i * 2 + 1) * (CELL + GAP) + 10}">${lab}</text>`).join('');
+
+  return `<div class="heatwrap">
+    <svg class="heat" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img"
+         aria-label="Reviews per day over the last 26 weeks">
+      ${months}${dayLabels}${cells}
+    </svg>
+  </div>`;
+}
+
+function viewDash() {
+  const all = app.data.problems.filter((p) => p.kind !== 'scratch');
+  const byDay = activityByDay();
+  const st = streaks(byDay);
+  const c = masteryOf(all);
+  const reps = (store.data.log ?? []).length;
+
+  // --- mastery, weakest pattern first ---
+  const rows = (app.data.patterns ?? []).map((pt) => {
+    const items = app.data.problems.filter((p) => p.pattern === pt.id);
+    const m = masteryOf(items);
+    // Weakness = how little of the pattern is solid, weighted by how much of
+    // it you have actually attempted, so a big untouched pattern outranks a
+    // small one you have half-learned.
+    const score = items.length ? (m.solid / items.length) : 1;
+    return { pt, m, score };
+  }).sort((a, b) => a.score - b.score || b.m.total - a.m.total);
+
+  const w = (n, t) => `${(n / t) * 100}%`;
+  const mastery = rows.map(({ pt, m }, i) => `<a class="mrow${i < 3 ? ' weak' : ''}" href="#/pattern/${pt.id}">
+    <span class="mrow-k">${esc(pt.name)}</span>
+    <span class="mrow-bar">
+      ${m.solid ? `<i class="solid" style="width:${w(m.solid, m.total)}"></i>` : ''}
+      ${m.shaky ? `<i class="shaky" style="width:${w(m.shaky, m.total)}"></i>` : ''}
+      ${m.forgot ? `<i class="forgot" style="width:${w(m.forgot, m.total)}"></i>` : ''}
+    </span>
+    <span class="mrow-n"><b>${m.solid}</b>/${m.total}</span>
+  </a>`).join('');
+
+  // --- Blind 75 / NeetCode 150 ---
+  const listBlock = (key, label, total) => {
+    const mine = all.filter((p) => p.lists?.[key]);
+    const solid = mine.filter((p) => statusOf(p.id) === 'solid').length;
+    const seen = mine.filter((p) => store.get(p.id)).length;
+    const untouched = mine.filter((p) => !store.get(p.id));
+    return `<div class="listgroup">
+      <div class="listrow">
+        <h3>${label}</h3>
+        <span class="frac">${mine.length} of ${total} in your repo</span>
+      </div>
+      <div class="track">
+        <i class="done" style="width:${w(solid, total)}"></i>
+        <i class="part" style="width:${w(Math.max(0, seen - solid), total)}"></i>
+      </div>
+      <p class="listnote">${solid} solid · ${seen - solid} reviewed but not solid · ${total - mine.length} not in your repo yet${untouched.length ? ` · <a href="#/p/${untouched[0].id}">start with ${esc(untouched[0].title)}</a>` : ''}</p>
+    </div>`;
+  };
+
+  // --- coverage ---
+  const withVideo = all.filter((p) => p.video).length;
+  const watched = all.filter((p) => store.isWatched(p.id)).length;
+  const noNotes = all.filter((p) => !p.notes.length && !p.authorNotes.length);
+  const noLink = all.filter((p) => !p.hasCanonicalUrl);
+  const never = all.filter((p) => !store.get(p.id));
+  const diff = {
+    e: all.filter((p) => p.difficulty === 'Easy').length,
+    m: all.filter((p) => p.difficulty === 'Medium').length,
+    h: all.filter((p) => p.difficulty === 'Hard').length,
+  };
+  const diffTotal = diff.e + diff.m + diff.h || 1;
+
+  const prof = app.data.profile;
+
+  return `<div class="wrap">
+    <div class="pagehead"><span class="eyebrow">${all.length} files · ${app.data.patterns.length} patterns</span></div>
+    <div class="pagehead">
+      <h1>Progress</h1>
+      <p>${reps ? `${plural(reps, 'review')} logged` : 'No reviews logged yet — grade a problem and this fills in.'}</p>
+    </div>
 
     <div class="statstrip" style="margin-top:14px">
-      <div class="stat"><span class="stat-k">Solid</span><span class="stat-v" style="color:var(--good)">${cnt.solid}</span></div>
-      <div class="stat"><span class="stat-k">Shaky</span><span class="stat-v" style="color:var(--warn)">${cnt.shaky}</span></div>
-      <div class="stat"><span class="stat-k">Forgot</span><span class="stat-v" style="color:var(--crit)">${cnt.forgot}</span></div>
-      <div class="stat"><span class="stat-k">Untouched</span><span class="stat-v">${none}</span></div>
+      <div class="stat"><span class="stat-k">Solid</span><span class="stat-v" style="color:var(--good)">${c.solid}</span></div>
+      <div class="stat"><span class="stat-k">Needs work</span><span class="stat-v" style="color:var(--warn)">${c.shaky + c.forgot}</span></div>
+      <div class="stat"><span class="stat-k">Untouched</span><span class="stat-v">${c.none}</span></div>
+      <div class="stat is-due"><span class="stat-k">Due now</span><span class="stat-v">${all.filter((p) => isDue(p.id)).length}</span></div>
     </div>
 
-    ${reps ? `<div class="section">
-      <div class="section-head"><h2>Coming back</h2></div>
-      <table class="kvtable">
-        <tbody>${['today', 'tomorrow', 'this week', 'this month', 'later']
-          .filter((k) => upcoming[k]).map((k) => `<tr><th>${k}</th><td class="n">${upcoming[k]}</td></tr>`).join('')}</tbody>
-      </table>
-    </div>` : ''}
+    <div class="dashgrid" style="margin-top:18px">
 
-    <div class="section">
-      <div class="section-head"><h2>By category</h2></div>
-      <div class="legend">
-        <span><i class="stdot solid"></i> solid</span>
-        <span><i class="stdot shaky"></i> shaky</span>
-        <span><i class="stdot forgot"></i> forgot</span>
-        <span><i class="stdot"></i> not reviewed</span>
-      </div>
-      <div class="bars">${categoryBars()}</div>
-    </div>
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Pattern mastery</h2>
+          <p>weakest first</p>
+          <span class="grow">${c.solid}/${c.total} solid overall</span>
+        </div>
+        <div class="panel-body">
+          <div class="chartlegend" style="margin-bottom:12px">
+            <span><i class="sw-solid"></i>Solid</span>
+            <span><i class="sw-shaky"></i>Shaky</span>
+            <span><i class="sw-forgot"></i>Forgot</span>
+            <span><i class="sw-none"></i>Not reviewed</span>
+          </div>
+          <div class="mastery">${mastery}</div>
+        </div>
+      </section>
 
-    <div class="section">
-      <div class="section-head"><h2>Your progress data</h2></div>
-      <p style="color:var(--text-dim);font-size:13px;margin:0 0 12px">
-        ${store.ok
-          ? 'Grades are stored in this browser only — they never leave your device, so they do not follow you to another phone or survive clearing site data. Export a copy to keep them.'
-          : 'This browser is blocking local storage, so grades cannot be saved this session. Everything else works.'}
-      </p>
-      <div class="setup-row">
-        <button class="bigbtn ghost" type="button" data-act="export">Export progress</button>
-        <button class="bigbtn ghost" type="button" data-act="import">Import progress</button>
-        <button class="bigbtn ghost" type="button" data-act="reset">Reset all</button>
-      </div>
-    </div>
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Review activity</h2>
+          <p>last 26 weeks</p>
+        </div>
+        <div class="panel-body">
+          <div class="streaks">
+            <div class="streak${st.current ? ' on' : ''}">
+              <div class="streak-v">${st.current}</div>
+              <div class="streak-k">Day streak</div>
+            </div>
+            <div class="streak">
+              <div class="streak-v">${st.longest}</div>
+              <div class="streak-k">Longest</div>
+            </div>
+            <div class="streak">
+              <div class="streak-v">${byDay.get(todayISO()) ?? 0}</div>
+              <div class="streak-k">Today</div>
+            </div>
+            <div class="streak">
+              <div class="streak-v">${byDay.size}</div>
+              <div class="streak-k">Active days</div>
+            </div>
+          </div>
+          ${heatmap(byDay)}
+          <div class="heatfoot">
+            <span>less</span>
+            <span class="heatscale">
+              <i style="background:var(--heat-0)"></i><i style="background:var(--heat-1)"></i>
+              <i style="background:var(--heat-2)"></i><i style="background:var(--heat-3)"></i>
+              <i style="background:var(--heat-4)"></i>
+            </span>
+            <span>more</span>
+            ${byDay.size === 0 ? '<span style="margin-left:auto">Nothing logged yet — grading a problem marks today.</span>' : ''}
+          </div>
+        </div>
+      </section>
 
-    <div class="section">
-      <div class="section-head"><h2>This build</h2></div>
-      <table class="kvtable"><tbody>
-        <tr><th>Source files</th><td class="n">${meta.counts.files}</td></tr>
-        <tr><th>With a problem link</th><td class="n">${meta.counts.withCanonicalUrl}</td></tr>
-        <tr><th>With a statement</th><td class="n">${meta.counts.withStatement}</td></tr>
-        <tr><th>With your notes</th><td class="n">${meta.counts.withNotes}</td></tr>
-        <tr><th>Commit</th><td class="n">${esc(meta.git.shortCommit ?? '—')}</td></tr>
-        <tr><th>Generated</th><td class="n">${esc((meta.generatedAt ?? '').slice(0, 10) || '—')}</td></tr>
-      </tbody></table>
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Interview lists</h2>
+          <p>what actually gets asked</p>
+        </div>
+        <div class="panel-body">
+          ${listBlock('blind75', 'Blind 75', 75)}
+          ${listBlock('neetcode150', 'NeetCode 150', 150)}
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Coverage</h2>
+          <p>gaps worth closing</p>
+        </div>
+        <div class="panel-body">
+          <div class="covgrid">
+            <a class="cov" href="#/browse">
+              <div class="cov-v">${watched}<span class="cov-s">/${withVideo}</span></div>
+              <div class="cov-k">Videos watched</div>
+            </a>
+            <a class="cov" href="#/cards">
+              <div class="cov-v">${never.length}</div>
+              <div class="cov-k">Never reviewed</div>
+            </a>
+            <div class="cov">
+              <div class="cov-v">${noNotes.length}</div>
+              <div class="cov-k">No notes of yours</div>
+            </div>
+            <div class="cov">
+              <div class="cov-v">${noLink.length}</div>
+              <div class="cov-k">No problem link</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <div class="listrow"><h3>Difficulty mix</h3><span class="frac">${diffTotal} rated</span></div>
+            <div class="diffbar">
+              <i class="e" style="width:${w(diff.e, diffTotal)}"></i>
+              <i class="m" style="width:${w(diff.m, diffTotal)}"></i>
+              <i class="h" style="width:${w(diff.h, diffTotal)}"></i>
+            </div>
+            <p class="listnote">${diff.e} easy · ${diff.m} medium · ${diff.h} hard</p>
+          </div>
+        </div>
+      </section>
+
+      ${prof ? `<section class="panel">
+        <div class="panel-head">
+          <h2>LeetCode profile</h2>
+          <p>${esc(prof.username)}</p>
+          <span class="grow">fetched ${esc((prof.fetchedAt ?? '').slice(0, 10))}</span>
+        </div>
+        <div class="panel-body">
+          <div class="covgrid">
+            <div class="cov"><div class="cov-v">${prof.solved?.all ?? '—'}</div><div class="cov-k">Solved total</div></div>
+            <div class="cov"><div class="cov-v" style="color:var(--easy)">${prof.solved?.easy ?? '—'}</div><div class="cov-k">Easy</div></div>
+            <div class="cov"><div class="cov-v" style="color:var(--medium)">${prof.solved?.medium ?? '—'}</div><div class="cov-k">Medium</div></div>
+            <div class="cov"><div class="cov-v" style="color:var(--hard)">${prof.solved?.hard ?? '—'}</div><div class="cov-k">Hard</div></div>
+            ${prof.ranking ? `<div class="cov"><div class="cov-v">${Number(prof.ranking).toLocaleString('en')}</div><div class="cov-k">Global rank</div></div>` : ''}
+            ${prof.contest?.rating ? `<div class="cov"><div class="cov-v">${Math.round(prof.contest.rating)}</div><div class="cov-k">Contest rating</div></div>` : ''}
+          </div>
+          <p class="listnote">Public profile data, refreshed at build time by <code>npm run profile</code> — not live.</p>
+        </div>
+      </section>` : ''}
+
+      <section class="panel">
+        <div class="panel-head"><h2>Your progress data</h2></div>
+        <div class="panel-body">
+          <p style="color:var(--text-dim);font-size:13px;margin:0 0 12px">
+            ${store.ok
+              ? 'Grades live in this browser only — they never leave your device, so they do not follow you to another phone or survive clearing site data. Export a copy to keep them.'
+              : 'This browser is blocking local storage, so grades cannot be saved this session. Everything else works.'}
+          </p>
+          <div class="setup-row">
+            <button class="bigbtn ghost" type="button" data-act="export">Export progress</button>
+            <button class="bigbtn ghost" type="button" data-act="import">Import progress</button>
+            <button class="bigbtn ghost" type="button" data-act="reset">Reset all</button>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>`;
 }
@@ -792,29 +1322,58 @@ function viewStats() {
 /* ================================================================= render == */
 
 function renderRail() {
-  // 'root' holds only the IDE scratch files; they stay reachable by search
-  // and direct link, but they are not a topic worth a rail row.
-  const cats = app.data.categories.filter((c) => c.counts.files > 0 && c.id !== 'root');
-  const cur = app.route.name === 'browse' ? app.route.arg
-    : app.route.name === 'problem' ? app.byId.get(app.route.arg)?.category : null;
+  const mode = store.pref('railMode') ?? 'patterns';
+  const r = app.route;
 
-  const rows = cats.map((c) => {
-    const items = app.data.problems.filter((p) => p.category === c.id);
-    const solid = items.filter((p) => statusOf(p.id) === 'solid').length;
-    const pct = items.length ? (solid / items.length) * 100 : 0;
-    return `<a class="catrow${c.depth > 1 ? ' sub' : ''}" href="#/browse/${c.id}" aria-current="${cur === c.id}">
-      <span class="catrow-name">${esc(c.name)}</span>
-      <span class="catrow-n">${c.counts.files}</span>
-      ${solid ? `<span class="catrow-meter"><i style="width:${pct}%"></i></span>` : ''}
+  const seg = `<div class="railseg" role="group" aria-label="Group problems by">
+    <button type="button" data-act="rail-mode" data-mode="patterns" aria-pressed="${mode === 'patterns'}">Patterns</button>
+    <button type="button" data-act="rail-mode" data-mode="folders" aria-pressed="${mode === 'folders'}">Folders</button>
+  </div>`;
+
+  const allRow = (href, label, n, current) => `<a class="catrow" href="${href}" aria-current="${current}">
+      <span class="catrow-name">${label}</span>
+      <span class="catrow-n">${n}</span>
     </a>`;
-  }).join('');
 
-  el('#rail-list').innerHTML = `<div class="rail-head">Topics</div>
-    <a class="catrow" href="#/browse" aria-current="${app.route.name === 'browse' && !app.route.arg}">
-      <span class="catrow-name">All problems</span>
-      <span class="catrow-n">${app.data.problems.filter((p) => p.kind !== 'scratch').length}</span>
-    </a>
-    ${rows}`;
+  let rows;
+  if (mode === 'patterns') {
+    const cur = r.name === 'pattern' ? r.arg
+      : r.name === 'problem' ? app.byId.get(r.arg)?.pattern : null;
+
+    rows = (app.data.patterns ?? []).map((pt) => {
+      const items = app.data.problems.filter((x) => x.pattern === pt.id);
+      const solid = items.filter((x) => statusOf(x.id) === 'solid').length;
+      const pct = items.length ? (solid / items.length) * 100 : 0;
+      return `<a class="catrow" href="#/pattern/${pt.id}" aria-current="${cur === pt.id}">
+        <span class="catrow-name">${esc(pt.name)}</span>
+        <span class="catrow-n">${pt.counts.files}</span>
+        ${solid ? `<span class="catrow-meter"><i style="width:${pct}%"></i></span>` : ''}
+      </a>`;
+    }).join('');
+  } else {
+    // 'root' holds only the IDE scratch files; they stay reachable by search
+    // and direct link, but they are not a topic worth a rail row.
+    const cats = app.data.categories.filter((c) => c.counts.files > 0 && c.id !== 'root');
+    const cur = r.name === 'browse' ? r.arg
+      : r.name === 'problem' ? app.byId.get(r.arg)?.category : null;
+
+    rows = cats.map((c) => {
+      const items = app.data.problems.filter((x) => x.category === c.id);
+      const solid = items.filter((x) => statusOf(x.id) === 'solid').length;
+      const pct = items.length ? (solid / items.length) * 100 : 0;
+      return `<a class="catrow${c.depth > 1 ? ' sub' : ''}" href="#/browse/${c.id}" aria-current="${cur === c.id}">
+        <span class="catrow-name">${esc(c.name)}</span>
+        <span class="catrow-n">${c.counts.files}</span>
+        ${solid ? `<span class="catrow-meter"><i style="width:${pct}%"></i></span>` : ''}
+      </a>`;
+    }).join('');
+  }
+
+  const total = app.data.problems.filter((x) => x.kind !== 'scratch').length;
+  el('#rail-list').innerHTML = seg
+    + `<div class="rail-head">${mode === 'patterns' ? 'Algorithm patterns' : 'Repo folders'}</div>`
+    + allRow('#/browse', 'All problems', total, r.name === 'browse' && !r.arg)
+    + rows;
 }
 
 function render() {
@@ -824,8 +1383,10 @@ function render() {
   if (r.name === 'today') main.innerHTML = viewToday();
   else if (r.name === 'browse') main.innerHTML = viewBrowse(r.arg);
   else if (r.name === 'problem') main.innerHTML = viewProblem(r.arg);
+  else if (r.name === 'pattern') main.innerHTML = viewPattern(r.arg);
   else if (r.name === 'cards') main.innerHTML = viewCards(r.arg);
-  else if (r.name === 'stats') main.innerHTML = viewStats();
+  else if (r.name === 'learn') main.innerHTML = viewLearn();
+  else if (r.name === 'dash') main.innerHTML = viewDash();
 
   renderRail();
 
@@ -833,7 +1394,10 @@ function render() {
   const due = app.data.problems.filter((p) => p.kind !== 'scratch' && isDue(p.id)).length;
   el('#tab-due').dataset.n = String(due);
   document.querySelectorAll('.tabbar a').forEach((a) => {
-    a.setAttribute('aria-current', String(a.dataset.tab === r.name || (r.name === 'problem' && a.dataset.tab === 'browse')));
+    const owns = a.dataset.tab === r.name
+      || (r.name === 'problem' && a.dataset.tab === 'browse')
+      || (r.name === 'pattern' && a.dataset.tab === 'browse');
+    a.setAttribute('aria-current', String(owns));
   });
   el('#brand-sub').textContent = due ? `${due} due` : 'revision deck';
 
@@ -850,8 +1414,11 @@ function parseHash() {
   const tail = rest.join('/');
   if (head === 'p') return { name: 'problem', arg: tail };
   if (head === 'browse') return { name: 'browse', arg: tail || null };
+  if (head === 'pattern') return { name: 'pattern', arg: tail || null };
   if (head === 'cards') return { name: 'cards', arg: tail || null };
-  if (head === 'stats') return { name: 'stats', arg: null };
+  if (head === 'learn') return { name: 'learn', arg: tail || null };
+  // 'stats' kept as an alias so old links and bookmarks still resolve.
+  if (head === 'dash' || head === 'stats') return { name: 'dash', arg: null };
   return { name: 'today', arg: null };
 }
 
@@ -879,7 +1446,10 @@ function doGrade(id, g) {
 }
 
 function exportProgress() {
-  const payload = JSON.stringify({ kind: 'dsa-deck-progress', version: 1, exported: new Date().toISOString(), progress: store.data.progress }, null, 2);
+  const payload = JSON.stringify({
+    kind: 'dsa-deck-progress', version: 2, exported: new Date().toISOString(),
+    progress: store.data.progress, log: store.data.log, watched: store.data.watched,
+  }, null, 2);
   // The artifact sandbox blocks downloads a page starts itself, so show the
   // data and copy it instead of handing over a file that may never arrive.
   navigator.clipboard?.writeText(payload).then(
@@ -914,6 +1484,9 @@ const SHORTCUTS = [
   ['1 / 2 / 3', 'Grade Forgot / Shaky / Solid'],
   ['g then t', 'Go to Today'],
   ['g then b', 'Go to Browse'],
+  ['g then l', 'Go to Learn'],
+  ['g then d', 'Go to Progress'],
+  ['v', 'Play the video on a problem'],
   ['Esc', 'Close this, or clear search'],
   ['?', 'Show this list'],
 ];
@@ -951,6 +1524,11 @@ document.addEventListener('click', (e) => {
       t.setAttribute('aria-expanded', String(open));
       break;
     }
+    case 'rail-mode':
+      store.pref('railMode', t.dataset.mode);
+      renderRail();
+      break;
+
     case 'theme': cycleTheme(); break;
     case 'help': helpSheet(); break;
     case 'close-sheet': closeSheet(); break;
@@ -983,6 +1561,36 @@ document.addEventListener('click', (e) => {
         hit.scrollIntoView({ block: 'center', behavior: 'smooth' });
         pre.scrollLeft = 0;
       }
+      break;
+    }
+
+    case 'play': {
+      const vid = t.dataset.vid;
+      // Tear down any other player first — one iframe at a time, by design.
+      document.querySelectorAll('.vframe iframe').forEach((f) => f.remove());
+      const frame = t.closest('.vframe');
+      const iframe = document.createElement('iframe');
+      // nocookie host, and no related-video grid at the end.
+      iframe.src = `https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.title = 'Video explanation';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.replaceChildren(iframe);
+      if (pid) store.watch(pid);
+      break;
+    }
+
+    case 'play-list': {
+      document.querySelectorAll('.vframe iframe').forEach((f) => f.remove());
+      const frame = t.closest('.vframe');
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/videoseries?list=${t.dataset.pl}&rel=0&modestbranding=1`;
+      iframe.title = 'Playlist';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.replaceChildren(iframe);
       break;
     }
 
@@ -1020,6 +1628,10 @@ document.addEventListener('click', (e) => {
         const incoming = parsed.progress ?? parsed;
         if (typeof incoming !== 'object' || Array.isArray(incoming)) throw new Error('not a progress object');
         store.data.progress = incoming;
+        // A v1 export has no history; rebuild what we can from `last` dates.
+        store.data.log = Array.isArray(parsed.log) ? parsed.log
+          : Object.entries(incoming).filter(([, r]) => r?.last).map(([id, r]) => ({ id, grade: r.grade ?? 3, at: r.last }));
+        store.data.watched = parsed.watched ?? {};
         store.save();
         closeSheet();
         render();
@@ -1071,7 +1683,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 't') { location.hash = '#/today'; return; }
     if (e.key === 'b') { location.hash = '#/browse'; return; }
     if (e.key === 'c') { location.hash = '#/cards'; return; }
-    if (e.key === 's') { location.hash = '#/stats'; return; }
+    if (e.key === 'l') { location.hash = '#/learn'; return; }
+    if (e.key === 'd' || e.key === 's') { location.hash = '#/dash'; return; }
   }
 
   switch (e.key) {
@@ -1081,6 +1694,11 @@ document.addEventListener('keydown', (e) => {
     case 'j': e.preventDefault(); moveCursor(1); break;
     case 'k': e.preventDefault(); moveCursor(-1); break;
     case 'r': randomProblem(); break;
+    case 'v': {
+      const poster = el('.vposter');
+      if (poster) { e.preventDefault(); poster.click(); }
+      break;
+    }
     case 'f': location.hash = '#/cards'; break;
     case 'Enter': {
       const sel = el('.pcard.sel');
@@ -1136,6 +1754,7 @@ async function boot() {
   }
 
   for (const p of app.data.problems) app.byId.set(p.id, p);
+  for (const pt of app.data.patterns ?? []) app.patternById.set(pt.id, pt);
   buildIndex();
   app.listing = app.data.problems.filter((p) => p.kind !== 'scratch');
 

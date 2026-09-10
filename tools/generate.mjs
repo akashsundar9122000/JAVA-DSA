@@ -19,6 +19,7 @@ import { triageHeaderLines, scoreStatement, STATEMENT_THRESHOLD } from './lib/cl
 import { classifyUrl, resolveCanonical } from './lib/urls.mjs';
 import { resolveTitle, splitClassName } from './lib/titles.mjs';
 import { GOLDEN, runSelftest } from './lib/selftest.mjs';
+import { PATTERNS, PATTERN_BY_ID, resolvePattern } from './lib/patterns.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -269,6 +270,50 @@ function parseFile(absPath, ctx) {
       difficulty = ctx.slugIndex.byId?.[String(ctx.slugIndex.bySlug[resolved.slug])]?.difficulty ?? null;
     }
 
+    // --- pattern + external enrichment -------------------------------------
+    const nc = resolved.slug ? ctx.neetcode.bySlug?.[resolved.slug] : null;
+    const lc = resolved.slug ? ctx.leetcode.bySlug?.[resolved.slug] : null;
+
+    const topicTags = lc?.topicTags ?? [];
+    const { pattern, patternSource } = resolvePattern({
+      override: override.pattern,
+      neetcodePattern: nc?.pattern,
+      topicTags,
+      categoryPath,
+      className: a.className,
+    });
+
+    // LeetCode's own difficulty is more trustworthy than anything scraped from
+    // a pasted comment, so let it win when the two disagree.
+    if (lc?.difficulty) difficulty = lc.difficulty;
+    else if (nc?.difficulty && !difficulty) difficulty = nc.difficulty;
+
+    // Video, in tier order. Tier 2 (searched) lives in videos.json keyed by
+    // problem id; tier 3 is a topic explainer, never a solution walkthrough.
+    let video = null;
+    const searched = ctx.videos.byId?.[base.id];
+    if (nc?.video) {
+      video = { id: nc.video, source: 'neetcode', kind: 'solution', channel: 'NeetCode' };
+    } else if (searched?.videoId) {
+      video = { id: searched.videoId, source: 'search', kind: 'solution', channel: searched.channel ?? null, title: searched.title ?? null };
+    }
+    if (video) {
+      const meta = ctx.videos.meta?.[video.id];
+      if (meta) {
+        video.title ??= meta.title ?? null;
+        video.channel ??= meta.channel ?? null;
+        video.verifiedAt = meta.verifiedAt ?? null;
+      }
+    }
+
+    // A topic explainer for the pattern, shown when there is no per-problem
+    // video and offered alongside one when there is.
+    const conceptKey = ctx.curated.conceptVideos?.[categoryPath] ? categoryPath : pattern;
+    const concept = ctx.curated.conceptVideos?.[conceptKey] ?? null;
+    const conceptVideo = concept
+      ? { id: concept.videoId, source: 'curated', kind: 'concept', channel: concept.channel ?? null, title: concept.title ?? null, note: concept.note ?? null }
+      : null;
+
     // --- statement ---------------------------------------------------------
     let statement = sectioned?.statement || null;
     let statementSource = statement ? 'source' : null;
@@ -316,6 +361,18 @@ function parseFile(absPath, ctx) {
       dailyChallengeDate: classified.map((c) => c.envId).find((e) => e && /^\d{4}-\d{2}-\d{2}$/.test(e)) ?? null,
 
       difficulty,
+      pattern,
+      patternSource,
+      topicTags,
+      hints: lc?.hints ?? [],
+      similar: lc?.similar ?? [],
+      acRate: lc?.acRate ?? null,
+      lists: {
+        blind75: !!nc?.blind75,
+        neetcode150: !!nc?.neetcode150,
+      },
+      video,
+      conceptVideo,
       companies: [...new Set([...(tri.companies), ...(categoryPath.startsWith('CompanyQuestions/') ? [categoryPath.split('/')[1]] : []), ...[].concat(override.companies ?? [])])],
       solvedDate: tri.solvedDate,
       status: tri.status,
@@ -385,7 +442,16 @@ function main() {
     (siblingsByDir[dir] ??= []).push(basename(f, '.java'));
   }
 
-  const ctx = { slugIndex, overrides, siblingsByDir };
+  // Harvested by the tools/fetch-*.mjs scripts. Each is optional: a missing
+  // file degrades that feature and never fails the build, which is what keeps
+  // generate.mjs offline and deterministic.
+  const neetcode = readJson(join(HERE, 'data', 'neetcode.json'), { bySlug: {} });
+  const leetcode = readJson(join(HERE, 'data', 'leetcode-problems.json'), { bySlug: {} });
+  const curated = readJson(join(HERE, 'data', 'curated.json'), { playlists: {}, conceptVideos: {}, channels: {} });
+  const videos = readJson(join(HERE, 'data', 'videos.json'), { byId: {} });
+  const profile = readJson(join(HERE, 'data', 'profile.json'), null);
+
+  const ctx = { slugIndex, overrides, siblingsByDir, neetcode, leetcode, curated, videos, profile };
 
   if (OPTS.one) {
     const abs = OPTS.one.startsWith('/') ? OPTS.one : join(ROOT, OPTS.one);
@@ -441,6 +507,29 @@ function main() {
     };
   });
 
+  // --- patterns -----------------------------------------------------------
+  // Emitted in the taxonomy's own order (a learning path), and only for
+  // patterns that actually hold something, so the UI never shows empty rails.
+  const patterns = PATTERNS.map((def) => {
+    const mine = problems.filter((p) => p.pattern === def.id);
+    return {
+      id: def.id,
+      name: def.name,
+      blurb: def.blurb,
+      playlist: curated.playlists?.[def.id] ?? null,
+      counts: {
+        files: mine.length,
+        problems: mine.filter((p) => p.kind === 'problem').length,
+        withVideo: mine.filter((p) => p.video).length,
+        blind75: mine.filter((p) => p.lists?.blind75).length,
+        neetcode150: mine.filter((p) => p.lists?.neetcode150).length,
+        easy: mine.filter((p) => p.difficulty === 'Easy').length,
+        medium: mine.filter((p) => p.difficulty === 'Medium').length,
+        hard: mine.filter((p) => p.difficulty === 'Hard').length,
+      },
+    };
+  }).filter((p) => p.counts.files > 0);
+
   // --- facets -------------------------------------------------------------
   const tally = (fn) => {
     const m = {};
@@ -478,14 +567,25 @@ function main() {
         withConstraints: problems.filter((p) => p.constraints.length).length,
         withDifficulty: problems.filter((p) => p.difficulty).length,
         withNotes: problems.filter((p) => p.notes.length || p.authorNotes.length).length,
+        withVideo: problems.filter((p) => p.video).length,
+        withConceptVideo: problems.filter((p) => p.conceptVideo).length,
+        withTopicTags: problems.filter((p) => p.topicTags?.length).length,
+        withHints: problems.filter((p) => p.hints?.length).length,
+        blind75: problems.filter((p) => p.lists?.blind75).length,
+        neetcode150: problems.filter((p) => p.lists?.neetcode150).length,
         totalSourceLines: problems.reduce((n, p) => n + p.lineCount, 0),
       },
       slugIndex: { present: Object.keys(slugIndex.byId ?? {}).length > 0, entries: Object.keys(slugIndex.byId ?? {}).length, fetchedAt: slugIndex.fetchedAt ?? null },
       warningCounts,
     },
     categories,
+    patterns,
+    profile,
+    channels: curated.channels ?? {},
     facets: {
       difficulties: tally((p) => p.difficulty),
+      patterns: tally((p) => PATTERN_BY_ID.get(p.pattern)?.name),
+      topicTags: tally((p) => p.topicTags),
       companies: tally((p) => p.companies),
       sites: tally((p) => p.site),
       kinds: tally((p) => p.kind),
@@ -608,10 +708,29 @@ function report(data, json) {
     withConstraints: counts.withConstraints, withNotes: counts.withNotes,
   });
 
+  console.log('\ncoverage by pattern');
+  console.log('-'.repeat(72));
+  console.log('  pattern                     files  vid  b75 nc150   E   M   H  source');
+  for (const pt of data.patterns) {
+    const c = pt.counts;
+    const srcs = {};
+    for (const p of data.problems.filter((x) => x.pattern === pt.id)) {
+      srcs[p.patternSource] = (srcs[p.patternSource] ?? 0) + 1;
+    }
+    const top = Object.entries(srcs).sort((a, b) => b[1] - a[1])[0];
+    console.log(
+      `  ${pt.name.slice(0, 26).padEnd(26)} ${String(c.files).padStart(5)} ${String(c.withVideo).padStart(4)} ${String(c.blind75).padStart(4)} ${String(c.neetcode150).padStart(5)} ${String(c.easy).padStart(3)} ${String(c.medium).padStart(3)} ${String(c.hard).padStart(3)}  ${top ? top[0] : '-'}`,
+    );
+  }
+
   console.log('\nsummary');
   console.log('-'.repeat(72));
   console.log(`  files          ${counts.files}   (problem ${counts.problems}, concept ${counts.concepts}, scratch ${counts.scratch}, unparsed ${counts.unparsed})`);
   console.log(`  difficulty     ${counts.withDifficulty}/${counts.files} resolved`);
+  console.log(`  patterns       ${data.patterns.length} in use`);
+  console.log(`  video          ${counts.withVideo} per-problem, ${counts.withConceptVideo} topic explainers`);
+  console.log(`  leetcode meta  ${counts.withTopicTags} tagged, ${counts.withHints} with hints`);
+  console.log(`  lists          ${counts.blind75} Blind 75, ${counts.neetcode150} NeetCode 150`);
   console.log(`  data.json      ${(bytes / 1024).toFixed(0)} KB${OPTS.pretty ? ' (pretty)' : ' minified'}`);
   if (bytes > 1.5 * 1024 * 1024) console.log('  !! over 1.5 MB — time to shard source out of the index');
   else if (bytes > 1024 * 1024) console.log('  !  over 1 MB — consider sharding soon');

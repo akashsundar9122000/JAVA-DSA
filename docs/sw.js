@@ -7,8 +7,20 @@
  * Data   -> stale-while-revalidate (instant offline, refreshes in background)
  */
 
-const VERSION = '4b957a5-j3sb';
+const THUMB_CACHE_MAX = 240;   // ~1 thumbnail per problem, capped so it cannot grow forever
+
+const VERSION = 'b3b1395-lqf1';
 const CACHE = `dsa-deck-${VERSION}`;
+// Thumbnails live outside the versioned cache: they are immutable per video id,
+// so a redeploy has no reason to throw them away.
+const THUMBS = 'dsa-deck-thumbs';
+
+/** Keep a cache bounded by evicting the oldest entries. */
+async function trimCache(cache, max) {
+  const keys = await cache.keys();
+  if (keys.length <= max) return;
+  for (const k of keys.slice(0, keys.length - max)) await cache.delete(k);
+}
 
 const SHELL = [
   './',
@@ -36,7 +48,9 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (e) => {
   e.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((k) => k.startsWith('dsa-deck-') && k !== CACHE).map((k) => caches.delete(k)));
+    await Promise.all(keys
+      .filter((k) => k.startsWith('dsa-deck-') && k !== CACHE && k !== THUMBS)
+      .map((k) => caches.delete(k)));
     await self.clients.claim();
   })());
 });
@@ -46,6 +60,34 @@ self.addEventListener('fetch', (e) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
+
+  // YouTube thumbnails: cache-first in their own bucket, so the video cards
+  // still render offline (the player itself needs the network, and says so).
+  // Responses are opaque cross-origin, which is fine to store and replay.
+  if (url.hostname === 'i.ytimg.com') {
+    e.respondWith((async () => {
+      const cache = await caches.open(THUMBS);
+      const hit = await cache.match(req);
+      if (hit) return hit;
+      try {
+        const res = await fetch(req);
+        if (res.status === 200 || res.type === 'opaque') {
+          cache.put(req, res.clone());
+          trimCache(cache, THUMB_CACHE_MAX);
+        }
+        return res;
+      } catch {
+        // A 1x1 transparent GIF keeps the layout intact when offline and
+        // uncached; the poster's own gradient and title still read.
+        return new Response(
+          Uint8Array.from(atob('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), (c) => c.charCodeAt(0)),
+          { headers: { 'content-type': 'image/gif' } },
+        );
+      }
+    })());
+    return;
+  }
+
   if (url.origin !== location.origin) return;   // let fonts go to the network
 
   if (url.pathname.endsWith('/data.json')) {

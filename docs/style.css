@@ -29,9 +29,22 @@
   --medium: #d9a13a;
   --hard:   #d9615a;
 
-  --good:  #57b96a;
-  --warn:  #d9a13a;
-  --crit:  #d9615a;
+  /* Mastery scale — chart marks, not text. These exact values come from
+     scripts/validate_palette.js: green<->amber previously failed CVD
+     separation (protan dELTA-E 4.9), meaning a red-green colourblind reader
+     could not tell "Solid" from "Shaky". This triple passes all five checks
+     against the #161a20 chart surface. Do not hand-tune without re-running it. */
+  --good:  #1faa80;
+  --warn:  #b58c1f;
+  --crit:  #e35275;
+  --none:  #232b34;
+
+  /* Sequential ramp for the activity heatmap: one hue, monotonic lightness. */
+  --heat-0: #1c222a;
+  --heat-1: #1d4d47;
+  --heat-2: #226b60;
+  --heat-3: #2f9e90;
+  --heat-4: #5ccfc0;
 
   /* syntax */
   --s-key:  #c191e0;
@@ -78,9 +91,15 @@
     --easy:   #17803d;
     --medium: #a76a08;
     --hard:   #b4322c;
-    --good:   #17803d;
-    --warn:   #a76a08;
-    --crit:   #b4322c;
+  --good:   #10893f;
+    --warn:   #ad6408;
+    --crit:   #c32e6a;
+    --none:   #e2e2dc;
+    --heat-0: #eeeeea;
+    --heat-1: #cbe8e2;
+    --heat-2: #93cfc4;
+    --heat-3: #4ea79a;
+    --heat-4: #1c8478;
 
     --s-key:  #8b3fbe;
     --s-str:  #2f7a35;
@@ -115,9 +134,15 @@
   --easy:   #17803d;
   --medium: #a76a08;
   --hard:   #b4322c;
-  --good:   #17803d;
-  --warn:   #a76a08;
-  --crit:   #b4322c;
+  --good:   #10893f;
+  --warn:   #ad6408;
+  --crit:   #c32e6a;
+  --none:   #e2e2dc;
+  --heat-0: #eeeeea;
+  --heat-1: #cbe8e2;
+  --heat-2: #93cfc4;
+  --heat-3: #4ea79a;
+  --heat-4: #1c8478;
 
   --s-key:  #8b3fbe;
   --s-str:  #2f7a35;
@@ -719,6 +744,12 @@ pre.code mark { background: color-mix(in srgb, var(--accent) 18%, transparent); 
   }
   .tabdot[data-n]:not([data-n="0"])::after { content: attr(data-n); }
 
+  /* Touch targets: the rail is a drawer on mobile and its rows were 30px,
+     the group toggle 24px — both too tight for a thumb. */
+  .catrow { padding: 11px 10px; }
+  .bigbtn { padding: 13px 20px; }
+  .code-btn, .pill { padding: 8px 12px; }
+
   .wrap, .pdetail, .cardstage { padding: 16px 14px 0; }
   .pd-title { font-size: 20px; }
   .prose { font-size: 14px; }
@@ -735,4 +766,283 @@ pre.code mark { background: color-mix(in srgb, var(--accent) 18%, transparent); 
 
 @media (min-width: 761px) {
   .rail { transform: none !important; }
+}
+
+/* ==========================================================================
+   Phase 2 — video, patterns, learn, dashboard
+   ========================================================================== */
+
+/* ------------------------------------------------------------- video --- */
+
+/* Facade: a poster + play button stands in for the iframe until asked for.
+   189 live iframes would make the phone unusable, and YouTube's embed is
+   heavy, so exactly one player is ever mounted. */
+.video { margin: 0; }
+
+.vframe {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: var(--bg-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.vframe iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.vposter {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%;
+  padding: 0; border: 0; cursor: pointer;
+  background: var(--bg-sunk);
+}
+.vposter img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: .62; transition: opacity .18s;
+}
+.vposter:hover img { opacity: .78; }
+.vposter::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, #000000a8, #00000018 55%);
+}
+
+.vplay {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid; place-items: center;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--accent); color: #06110f;
+  box-shadow: 0 4px 18px #00000066;
+  transition: transform .18s;
+}
+.vposter:hover .vplay { transform: translate(-50%, -50%) scale(1.07); }
+.vplay svg { width: 22px; height: 22px; margin-left: 3px; fill: currentColor; stroke: none; }
+.heatscale i, .chartlegend i { border: 0; }
+
+.vlabel {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  padding: 10px 12px;
+  text-align: left; pointer-events: none;
+}
+.vlabel b {
+  display: block;
+  font: 500 12.5px/1.35 var(--sans); color: #f4f6f8;
+  text-shadow: 0 1px 3px #000000cc;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.vlabel span {
+  font: 400 10.5px var(--mono); color: #cfd6dd;
+  text-shadow: 0 1px 3px #000000cc;
+}
+
+.vmeta {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-top: 8px;
+  font: 400 11px var(--mono); color: var(--text-faint);
+}
+.vmeta .who { color: var(--text-dim); }
+
+.voffline {
+  position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 6px;
+  background: var(--bg-sunk); text-align: center; padding: 16px;
+}
+.voffline b { font: 600 12.5px var(--mono); color: var(--text-dim); }
+.voffline span { font: 400 11px var(--mono); color: var(--text-faint); }
+
+/* ------------------------------------------------------- rail toggle --- */
+
+.railseg {
+  display: flex; gap: 2px; margin: 2px 4px 10px;
+  padding: 2px; border-radius: var(--r-sm);
+  background: var(--surface); border: 1px solid var(--line);
+}
+.railseg button {
+  flex: 1; padding: 5px 6px; border-radius: 3px;
+  font: 500 10.5px var(--mono); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+.railseg button:hover { color: var(--text); }
+.railseg button[aria-pressed="true"] { background: var(--surface-3); color: var(--text); }
+
+/* ------------------------------------------------------------- learn --- */
+
+.learngrid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+
+.plcard {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  background: var(--surface); overflow: hidden;
+}
+.plcard-head { padding: 13px 14px 11px; }
+.plcard-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.plcard-top h3 { margin: 0; font: 600 14px var(--mono); letter-spacing: -.01em; }
+.plcard-n { margin-left: auto; font: 400 10.5px var(--mono); color: var(--text-faint); }
+.plcard-why { margin: 0; font: 400 12.5px/1.6 var(--sans); color: var(--text-dim); }
+.plcard-blurb { margin: 0 0 8px; font: 400 12.5px/1.6 var(--sans); color: var(--text); }
+.plcard-body { padding: 0 14px 13px; }
+.plcard-foot {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 11px 14px; border-top: 1px solid var(--line-soft); background: var(--surface-2);
+  margin-top: auto;
+}
+
+.mini {
+  display: flex; height: 6px; border-radius: 2px; overflow: hidden;
+  background: var(--none); margin: 10px 0 4px;
+}
+.mini i { display: block; height: 100%; }
+.mini i + i { box-shadow: -2px 0 0 var(--surface); }
+.mini i.solid  { background: var(--good); }
+.mini i.shaky  { background: var(--warn); }
+.mini i.forgot { background: var(--crit); }
+
+.kindtag {
+  font: 500 9.5px var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 3px;
+  color: var(--text-faint); border: 1px solid var(--line);
+}
+.kindtag.dedicated { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 38%, transparent); background: var(--accent-wash); }
+
+/* --------------------------------------------------------- dashboard --- */
+
+.dashgrid { display: grid; gap: 18px; }
+
+.panel {
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  background: var(--surface); overflow: hidden;
+}
+.panel-head {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  padding: 13px 15px 11px; border-bottom: 1px solid var(--line-soft);
+}
+.panel-head h2 { margin: 0; font: 600 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.panel-head p { margin: 0; font: 400 11.5px var(--sans); color: var(--text-faint); }
+.panel-head .grow { margin-left: auto; font: 400 11px var(--mono); color: var(--text-faint); }
+.panel-body { padding: 14px 15px; }
+
+/* legend: identity is never colour alone — every swatch carries its label */
+.chartlegend {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  font: 400 11px var(--mono); color: var(--text-dim);
+}
+.chartlegend span { display: inline-flex; align-items: center; gap: 5px; }
+.chartlegend i { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+.sw-solid  { background: var(--good); }
+.sw-shaky  { background: var(--warn); }
+.sw-forgot { background: var(--crit); }
+.sw-none   { background: var(--none); }
+
+/* mastery: horizontal stacked bars, weakest pattern first */
+.mastery { display: flex; flex-direction: column; gap: 2px; }
+.mrow {
+  display: grid; grid-template-columns: 168px 1fr 74px;
+  align-items: center; gap: 12px;
+  padding: 5px 6px; border-radius: var(--r-sm);
+  color: var(--text);
+}
+.mrow:hover { background: var(--surface-2); text-decoration: none; }
+.mrow-k { font: 400 12px var(--mono); color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mrow:hover .mrow-k { color: var(--text); }
+.mrow-bar { display: flex; height: 14px; border-radius: 2px; overflow: hidden; background: var(--none); }
+.mrow-bar i { display: block; height: 100%; min-width: 0; }
+.mrow-bar i + i { box-shadow: -2px 0 0 var(--surface); }
+.mrow-bar i.solid  { background: var(--good); }
+.mrow-bar i.shaky  { background: var(--warn); }
+.mrow-bar i.forgot { background: var(--crit); }
+.mrow-n {
+  font: 400 11px var(--mono); color: var(--text-faint);
+  font-variant-numeric: tabular-nums; text-align: right;
+}
+.mrow-n b { color: var(--good); font-weight: 500; }
+.mrow.weak .mrow-k { color: var(--text); }
+/* Inset shadow, not a ::before — a pseudo-element on a grid container becomes
+   a grid item and would shift every column in the row. */
+.mrow.weak { box-shadow: inset 2px 0 0 var(--crit); padding-left: 10px; }
+
+/* heatmap */
+.heatwrap { overflow-x: auto; padding-bottom: 4px; }
+.heat { display: block; min-width: 620px; }
+.heat rect { rx: 2; stroke: none; }
+.heat text { font: 400 9px var(--mono); fill: var(--text-faint); stroke: none; }
+.heatfoot {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-top: 10px; font: 400 10.5px var(--mono); color: var(--text-faint);
+}
+.heatscale { display: inline-flex; gap: 2px; align-items: center; }
+.heatscale i { width: 10px; height: 10px; border-radius: 2px; }
+
+.streaks { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 12px; }
+.streak-v { font: 500 21px/1 var(--mono); font-variant-numeric: tabular-nums; }
+.streak-k { font: 500 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
+.streak.on .streak-v { color: var(--accent); }
+
+/* list progress (Blind 75 / NeetCode 150) */
+.listrow { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.listrow h3 { margin: 0; font: 600 12.5px var(--mono); }
+.listrow .frac { margin-left: auto; font: 400 11.5px var(--mono); color: var(--text-faint); font-variant-numeric: tabular-nums; }
+.track { height: 10px; border-radius: 3px; background: var(--none); overflow: hidden; display: flex; }
+.track i { display: block; height: 100%; }
+.track i.done { background: var(--good); }
+.track i.part { background: var(--warn); }
+.listnote { margin: 7px 0 0; font: 400 11.5px/1.5 var(--sans); color: var(--text-faint); }
+.listgroup + .listgroup { margin-top: 18px; }
+
+/* coverage */
+.covgrid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.cov {
+  padding: 11px 12px; border-radius: var(--r);
+  background: var(--surface-2); border: 1px solid var(--line-soft);
+  color: var(--text);
+}
+a.cov:hover { border-color: var(--accent-deep); text-decoration: none; }
+.cov-v { font: 500 18px/1.15 var(--mono); font-variant-numeric: tabular-nums; }
+.cov-k { font: 500 9.5px var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--text-faint); margin-top: 2px; }
+.cov-s { font: 400 10.5px var(--mono); color: var(--text-faint); }
+
+.diffbar { display: flex; height: 12px; border-radius: 2px; overflow: hidden; background: var(--none); }
+.diffbar i { display: block; height: 100%; }
+.diffbar i + i { box-shadow: -2px 0 0 var(--surface); }
+.diffbar i.e { background: var(--easy); }
+.diffbar i.m { background: var(--medium); }
+.diffbar i.h { background: var(--hard); }
+
+/* hints */
+.hint {
+  padding: 10px 12px; border-radius: var(--r);
+  background: var(--surface-2); border: 1px solid var(--line);
+  font: 400 13px/1.6 var(--sans); color: var(--text);
+}
+.hint + .hint { margin-top: 7px; }
+.hint-n { font: 500 9.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 3px; }
+
+.tagrow { display: flex; gap: 5px; flex-wrap: wrap; }
+.tag {
+  padding: 2px 7px; border-radius: 3px;
+  font: 400 10.5px var(--mono); color: var(--text-dim);
+  background: var(--surface-2); border: 1px solid var(--line-soft);
+}
+a.tag:hover { color: var(--accent); border-color: var(--accent-deep); text-decoration: none; }
+
+.simlist { display: flex; flex-direction: column; gap: 4px; }
+.sim {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; border-radius: var(--r-sm);
+  background: var(--surface); border: 1px solid var(--line-soft);
+  font: 400 12.5px var(--sans); color: var(--text);
+}
+.sim:hover { border-color: var(--surface-3); text-decoration: none; }
+.sim .mine { margin-left: auto; font: 400 10px var(--mono); color: var(--accent); }
+.sim .ext { margin-left: auto; font: 400 10px var(--mono); color: var(--text-faint); }
+
+@media (max-width: 760px) {
+  .learngrid { grid-template-columns: 1fr; }
+  .mrow { grid-template-columns: 1fr 70px; }
+  .mrow-bar { grid-column: 1 / -1; order: 3; }
+  .mrow.weak::before { display: none; }
+  .dashgrid { gap: 14px; }
+  .panel-body { padding: 12px; }
+  .vplay { width: 50px; height: 50px; }
+  /* Must live here, after the base .railseg rule, or the cascade discards it. */
+  .railseg button { padding: 10px 6px; }
 }

@@ -1,0 +1,4348 @@
+{
+  "schemaVersion": 1,
+  "bySlug": {
+    "01-matrix": {
+      "id": 542,
+      "title": "01 Matrix",
+      "slug": "01-matrix",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "54.9%",
+      "likes": 10973,
+      "dislikes": 454,
+      "topicTags": [
+        "Array",
+        "Dynamic Programming",
+        "Breadth-First Search",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "shortest-path-to-get-food",
+          "title": "Shortest Path to Get Food",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-operations-to-remove-adjacent-ones-in-matrix",
+          "title": "Minimum Operations to Remove Adjacent Ones in Matrix",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "difference-between-ones-and-zeros-in-row-and-column",
+          "title": "Difference Between Ones and Zeros in Row and Column",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:33.479Z"
+    },
+    "add-digits": {
+      "id": 258,
+      "title": "Add Digits",
+      "slug": "add-digits",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "69.3%",
+      "likes": 5625,
+      "dislikes": 1989,
+      "topicTags": [
+        "Math",
+        "Simulation",
+        "Number Theory"
+      ],
+      "hints": [
+        "A naive implementation of the above process is trivial. Could you come up with other methods?",
+        "What are all the possible results?",
+        "How do they occur, periodically or randomly?",
+        "You may find this <a href=\"https://en.wikipedia.org/wiki/Digital_root\" target=\"_blank\">Wikipedia article</a> useful."
+      ],
+      "similar": [
+        {
+          "slug": "happy-number",
+          "title": "Happy Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-digits-in-the-minimum-number",
+          "title": "Sum of Digits in the Minimum Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-digits-of-string-after-convert",
+          "title": "Sum of Digits of String After Convert",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-sum-of-four-digit-number-after-splitting-digits",
+          "title": "Minimum Sum of Four Digit Number After Splitting Digits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "calculate-digit-sum-of-a-string",
+          "title": "Calculate Digit Sum of a String",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "difference-between-element-sum-and-digit-sum-of-an-array",
+          "title": "Difference Between Element Sum and Digit Sum of an Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "alternating-digit-sum",
+          "title": "Alternating Digit Sum",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:34.452Z"
+    },
+    "arranging-coins": {
+      "id": 441,
+      "title": "Arranging Coins",
+      "slug": "arranging-coins",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "48.6%",
+      "likes": 4426,
+      "dislikes": 1382,
+      "topicTags": [
+        "Math",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:44:35.377Z"
+    },
+    "best-time-to-buy-and-sell-stock": {
+      "id": 121,
+      "title": "Best Time to Buy and Sell Stock",
+      "slug": "best-time-to-buy-and-sell-stock",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "57.4%",
+      "likes": 36329,
+      "dislikes": 1433,
+      "topicTags": [
+        "Array",
+        "Dynamic Programming"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "maximum-subarray",
+          "title": "Maximum Subarray",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "best-time-to-buy-and-sell-stock-ii",
+          "title": "Best Time to Buy and Sell Stock II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "best-time-to-buy-and-sell-stock-iii",
+          "title": "Best Time to Buy and Sell Stock III",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "best-time-to-buy-and-sell-stock-iv",
+          "title": "Best Time to Buy and Sell Stock IV",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+          "title": "Best Time to Buy and Sell Stock with Cooldown",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "sum-of-beauty-in-the-array",
+          "title": "Sum of Beauty in the Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-difference-between-increasing-elements",
+          "title": "Maximum Difference Between Increasing Elements",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "maximum-profit-from-trading-stocks",
+          "title": "Maximum Profit From Trading Stocks",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "best-time-to-buy-and-sell-stock-v",
+          "title": "Best Time to Buy and Sell Stock V",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:36.128Z"
+    },
+    "binary-search": {
+      "id": 704,
+      "title": "Binary Search",
+      "slug": "binary-search",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "61.4%",
+      "likes": 13763,
+      "dislikes": 309,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "search-in-a-sorted-array-of-unknown-size",
+          "title": "Search in a Sorted Array of Unknown Size",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-count-of-positive-integer-and-negative-integer",
+          "title": "Maximum Count of Positive Integer and Negative Integer",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:36.894Z"
+    },
+    "binary-subarrays-with-sum": {
+      "id": 930,
+      "title": "Binary Subarrays With Sum",
+      "slug": "binary-subarrays-with-sum",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "69.8%",
+      "likes": 5051,
+      "dislikes": 173,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Sliding Window",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "Can you transform the problem into finding two prefix sums whose difference equals <code>goal</code>?",
+        "While iterating through the array, keep track of how many times each prefix sum has appeared so far.",
+        "If the current prefix sum is <code>curr</code>, how many previous prefix sums equal to <code>curr - goal</code> exist?"
+      ],
+      "similar": [
+        {
+          "slug": "count-subarrays-with-score-less-than-k",
+          "title": "Count Subarrays With Score Less Than K",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "ways-to-split-array-into-good-subarrays",
+          "title": "Ways to Split Array Into Good Subarrays",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-possible-stable-binary-arrays-i",
+          "title": "Find All Possible Stable Binary Arrays I",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-possible-stable-binary-arrays-ii",
+          "title": "Find All Possible Stable Binary Arrays II",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:37.678Z"
+    },
+    "combination-sum": {
+      "id": 39,
+      "title": "Combination Sum",
+      "slug": "combination-sum",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "77.1%",
+      "likes": 21349,
+      "dislikes": 549,
+      "topicTags": [
+        "Array",
+        "Backtracking"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "letter-combinations-of-a-phone-number",
+          "title": "Letter Combinations of a Phone Number",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "combination-sum-ii",
+          "title": "Combination Sum II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "combinations",
+          "title": "Combinations",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "combination-sum-iii",
+          "title": "Combination Sum III",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "factor-combinations",
+          "title": "Factor Combinations",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "combination-sum-iv",
+          "title": "Combination Sum IV",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "the-number-of-ways-to-make-the-sum",
+          "title": "The Number of Ways to Make the Sum",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:38.643Z"
+    },
+    "count-caesar-cipher-pairs": {
+      "id": 3805,
+      "title": "Count Caesar Cipher Pairs",
+      "slug": "count-caesar-cipher-pairs",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "51.6%",
+      "likes": 115,
+      "dislikes": 2,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Math",
+        "String",
+        "Counting"
+      ],
+      "hints": [
+        "Two strings are similar if the differences between consecutive characters (mod 26) are the same; normalize each string by shifting its first character to <code>'a'</code>.",
+        "Compute a hashable key for each normalized string representing its relative character differences.",
+        "Use a map to count how many strings share the same normalized key."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:44:39.463Z"
+    },
+    "count-number-of-nice-subarrays": {
+      "id": 1248,
+      "title": "Count Number of Nice Subarrays",
+      "slug": "count-number-of-nice-subarrays",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "75.7%",
+      "likes": 5588,
+      "dislikes": 157,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Math",
+        "Sliding Window",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "After replacing each even by zero and every odd by one can we use prefix sum to find answer ?",
+        "Can we use two pointers to count number of sub-arrays ?",
+        "Can we store the indices of odd numbers and for each k indices count the number of sub-arrays that contains them ?"
+      ],
+      "similar": [
+        {
+          "slug": "k-divisible-elements-subarrays",
+          "title": "K Divisible Elements Subarrays",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-subarrays-with-fixed-bounds",
+          "title": "Count Subarrays With Fixed Bounds",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "ways-to-split-array-into-good-subarrays",
+          "title": "Ways to Split Array Into Good Subarrays",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-of-interesting-subarrays",
+          "title": "Count of Interesting Subarrays",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:40.242Z"
+    },
+    "counting-bits": {
+      "id": 338,
+      "title": "Counting Bits",
+      "slug": "counting-bits",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "80.8%",
+      "likes": 12081,
+      "dislikes": 617,
+      "topicTags": [
+        "Dynamic Programming",
+        "Bit Manipulation"
+      ],
+      "hints": [
+        "You should make use of what you have produced already.",
+        "Divide the numbers in ranges like [2-3], [4-7], [8-15] and so on. And try to generate new range from previous.",
+        "Or does the odd/even status of the number help you in calculating the number of 1s?"
+      ],
+      "similar": [
+        {
+          "slug": "number-of-1-bits",
+          "title": "Number of 1 Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-values-at-indices-with-k-set-bits",
+          "title": "Sum of Values at Indices With K Set Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-the-k-or-of-an-array",
+          "title": "Find the K-or of an Array",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:40.978Z"
+    },
+    "coupon-code-validator": {
+      "id": 3606,
+      "title": "Coupon Code Validator",
+      "slug": "coupon-code-validator",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "64.4%",
+      "likes": 341,
+      "dislikes": 108,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "String",
+        "Sorting"
+      ],
+      "hints": [
+        "Filter out any coupon where <code>isActive[i]</code> is false, <code>code[i]</code> is empty or contains non‑alphanumeric/underscore chars, or <code>businessLine[i]</code> is not in the allowed set",
+        "Store each remaining coupon as a pair <code>(businessLine[i], code[i])</code>",
+        "Define a priority map, e.g. <code>{\"electronics\":0, \"grocery\":1, \"pharmacy\":2, \"restaurant\":3}</code>",
+        "Sort the list of pairs by <code>(priority[businessLine], code)</code> and return the <code>code</code> values in order"
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:44:41.764Z"
+    },
+    "course-schedule": {
+      "id": 207,
+      "title": "Course Schedule",
+      "slug": "course-schedule",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "52.2%",
+      "likes": 18314,
+      "dislikes": 884,
+      "topicTags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph Theory",
+        "Topological Sort",
+        "Directed Acyclic Graph"
+      ],
+      "hints": [
+        "This problem is equivalent to finding if a cycle exists in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.",
+        "<a href=\"https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pdf/03Graphs.pdf\" target=\"_blank\">Topological Sort via DFS</a> - A great tutorial explaining the basic concepts of Topological Sort.",
+        "Topological sort could also be done via <a href=\"http://en.wikipedia.org/wiki/Topological_sorting#Algorithms\" target=\"_blank\">BFS</a>."
+      ],
+      "similar": [
+        {
+          "slug": "course-schedule-ii",
+          "title": "Course Schedule II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "graph-valid-tree",
+          "title": "Graph Valid Tree",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-height-trees",
+          "title": "Minimum Height Trees",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "course-schedule-iii",
+          "title": "Course Schedule III",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "build-a-matrix-with-conditions",
+          "title": "Build a Matrix With Conditions",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:42.632Z"
+    },
+    "course-schedule-ii": {
+      "id": 210,
+      "title": "Course Schedule II",
+      "slug": "course-schedule-ii",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "56.2%",
+      "likes": 12124,
+      "dislikes": 384,
+      "topicTags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph Theory",
+        "Topological Sort"
+      ],
+      "hints": [
+        "This problem is equivalent to finding the topological order in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.",
+        "<a href=\"https://www.youtube.com/watch?v=ozso3xxkVGU\" target=\"_blank\">Topological Sort via DFS</a> - A great video tutorial (21 minutes) on Coursera explaining the basic concepts of Topological Sort.",
+        "Topological sort could also be done via <a href=\"http://en.wikipedia.org/wiki/Topological_sorting#Algorithms\" target=\"_blank\">BFS</a>."
+      ],
+      "similar": [
+        {
+          "slug": "course-schedule",
+          "title": "Course Schedule",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "alien-dictionary",
+          "title": "Alien Dictionary",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "minimum-height-trees",
+          "title": "Minimum Height Trees",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "sequence-reconstruction",
+          "title": "Sequence Reconstruction",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "course-schedule-iii",
+          "title": "Course Schedule III",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "parallel-courses",
+          "title": "Parallel Courses",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-possible-recipes-from-given-supplies",
+          "title": "Find All Possible Recipes from Given Supplies",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "build-a-matrix-with-conditions",
+          "title": "Build a Matrix With Conditions",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "sort-array-by-moving-items-to-empty-space",
+          "title": "Sort Array by Moving Items to Empty Space",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:43.414Z"
+    },
+    "defuse-the-bomb": {
+      "id": 1652,
+      "title": "Defuse the Bomb",
+      "slug": "defuse-the-bomb",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "79.5%",
+      "likes": 1700,
+      "dislikes": 189,
+      "topicTags": [
+        "Array",
+        "Sliding Window"
+      ],
+      "hints": [
+        "As the array is circular, use modulo to find the correct index.",
+        "The constraints are low enough for a brute-force solution."
+      ],
+      "similar": [
+        {
+          "slug": "circular-sentence",
+          "title": "Circular Sentence",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "shortest-distance-to-target-string-in-a-circular-array",
+          "title": "Shortest Distance to Target String in a Circular Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "take-k-of-each-character-from-left-and-right",
+          "title": "Take K of Each Character From Left and Right",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:44.279Z"
+    },
+    "design-auction-system": {
+      "id": 3815,
+      "title": "Design Auction System",
+      "slug": "design-auction-system",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "42.0%",
+      "likes": 89,
+      "dislikes": 7,
+      "topicTags": [
+        "Hash Table",
+        "Design",
+        "Heap (Priority Queue)",
+        "Ordered Set"
+      ],
+      "hints": [
+        "Maintain a map from <code>itemId</code> to its active bids.",
+        "For each item, use a data structure ordered by <code>(bidAmount, userId)</code> to get the highest bidder efficiently.",
+        "On <code>addBid</code> or <code>updateBid</code>, remove the old entry (if any) and insert the new one.",
+        "On <code>removeBid</code>, delete the corresponding entry; return the top element for <code>getHighestBidder</code>."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:44:45.029Z"
+    },
+    "design-circular-queue": {
+      "id": 622,
+      "title": "Design Circular Queue",
+      "slug": "design-circular-queue",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "55.4%",
+      "likes": 3911,
+      "dislikes": 364,
+      "topicTags": [
+        "Array",
+        "Linked List",
+        "Design",
+        "Queue"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "design-circular-deque",
+          "title": "Design Circular Deque",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "design-front-middle-back-queue",
+          "title": "Design Front Middle Back Queue",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:46.015Z"
+    },
+    "detect-cycles-in-2d-grid": {
+      "id": 1559,
+      "title": "Detect Cycles in 2D Grid",
+      "slug": "detect-cycles-in-2d-grid",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "63.6%",
+      "likes": 1548,
+      "dislikes": 33,
+      "topicTags": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union-Find",
+        "Matrix"
+      ],
+      "hints": [
+        "Keep track of the parent (previous position) to avoid considering an invalid path.",
+        "Use DFS or BFS and keep track of visited cells to see if there is a cycle."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:44:46.750Z"
+    },
+    "evaluate-reverse-polish-notation": {
+      "id": 150,
+      "title": "Evaluate Reverse Polish Notation",
+      "slug": "evaluate-reverse-polish-notation",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "58.7%",
+      "likes": 8935,
+      "dislikes": 1204,
+      "topicTags": [
+        "Array",
+        "Math",
+        "Stack"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "basic-calculator",
+          "title": "Basic Calculator",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "expression-add-operators",
+          "title": "Expression Add Operators",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:47.545Z"
+    },
+    "fibonacci-number": {
+      "id": 509,
+      "title": "Fibonacci Number",
+      "slug": "fibonacci-number",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "74.6%",
+      "likes": 9541,
+      "dislikes": 419,
+      "topicTags": [
+        "Math",
+        "Dynamic Programming",
+        "Recursion",
+        "Memoization"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "climbing-stairs",
+          "title": "Climbing Stairs",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "split-array-into-fibonacci-sequence",
+          "title": "Split Array into Fibonacci Sequence",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "length-of-longest-fibonacci-subsequence",
+          "title": "Length of Longest Fibonacci Subsequence",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "n-th-tribonacci-number",
+          "title": "N-th Tribonacci Number",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:48.280Z"
+    },
+    "find-all-duplicates-in-an-array": {
+      "id": 442,
+      "title": "Find All Duplicates in an Array",
+      "slug": "find-all-duplicates-in-an-array",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "77.2%",
+      "likes": 11272,
+      "dislikes": 451,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Sorting"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "find-all-numbers-disappeared-in-an-array",
+          "title": "Find All Numbers Disappeared in an Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-distances",
+          "title": "Sum of Distances",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "the-two-sneaky-numbers-of-digitville",
+          "title": "The Two Sneaky Numbers of Digitville",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:49.003Z"
+    },
+    "find-all-numbers-disappeared-in-an-array": {
+      "id": 448,
+      "title": "Find All Numbers Disappeared in an Array",
+      "slug": "find-all-numbers-disappeared-in-an-array",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "64.6%",
+      "likes": 10588,
+      "dislikes": 561,
+      "topicTags": [
+        "Array",
+        "Hash Table"
+      ],
+      "hints": [
+        "This is a really easy problem if you decide to use additional memory. For those trying to write an initial solution using additional memory, think <b>counters!</b>",
+        "However, the trick really is to not use any additional space than what is already available to use. Sometimes, multiple passes over the input array help find the solution. However, there's an interesting piece of information in this problem that makes it easy to re-use the input array itself for the solution.",
+        "The problem specifies that the numbers in the array will be in the range [1, n] where n is the number of elements in the array. Can we use this information and modify the array in-place somehow to find what we need?"
+      ],
+      "similar": [
+        {
+          "slug": "first-missing-positive",
+          "title": "First Missing Positive",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "find-all-duplicates-in-an-array",
+          "title": "Find All Duplicates in an Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-unique-binary-string",
+          "title": "Find Unique Binary String",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "append-k-integers-with-minimal-sum",
+          "title": "Append K Integers With Minimal Sum",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "replace-elements-in-an-array",
+          "title": "Replace Elements in an Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-number-of-integers-to-choose-from-a-range-i",
+          "title": "Maximum Number of Integers to Choose From a Range I",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-number-of-integers-to-choose-from-a-range-ii",
+          "title": "Maximum Number of Integers to Choose From a Range II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-numbers-disappeared-in-an-array-ii",
+          "title": "Find All Numbers Disappeared in an Array II",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:50.245Z"
+    },
+    "find-eventual-safe-states": {
+      "id": 802,
+      "title": "Find Eventual Safe States",
+      "slug": "find-eventual-safe-states",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "71.5%",
+      "likes": 7212,
+      "dislikes": 533,
+      "topicTags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph Theory",
+        "Topological Sort",
+        "Kosaraju's Algorithm",
+        "Tarjan's SCC Algorithm"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "build-a-matrix-with-conditions",
+          "title": "Build a Matrix With Conditions",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:51.039Z"
+    },
+    "find-first-and-last-position-of-element-in-sorted-array": {
+      "id": 34,
+      "title": "Find First and Last Position of Element in Sorted Array",
+      "slug": "find-first-and-last-position-of-element-in-sorted-array",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "49.6%",
+      "likes": 23731,
+      "dislikes": 663,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "first-bad-version",
+          "title": "First Bad Version",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "plates-between-candles",
+          "title": "Plates Between Candles",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-target-indices-after-sorting-array",
+          "title": "Find Target Indices After Sorting Array",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:51.768Z"
+    },
+    "find-in-mountain-array": {
+      "id": 1095,
+      "title": "Find in Mountain Array",
+      "slug": "find-in-mountain-array",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "42.0%",
+      "likes": 3666,
+      "dislikes": 158,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Interactive",
+        "Ternary Search"
+      ],
+      "hints": [
+        "Based on whether A[i-1] < A[i] < A[i+1], A[i-1] < A[i] > A[i+1], or A[i-1] > A[i] > A[i+1], we are either at the left side, peak, or right side of the mountain.  We can binary search to find the peak.\r\nAfter finding the peak, we can binary search two more times to find whether the value occurs on either side of the peak."
+      ],
+      "similar": [
+        {
+          "slug": "peak-index-in-a-mountain-array",
+          "title": "Peak Index in a Mountain Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-number-of-removals-to-make-mountain-array",
+          "title": "Minimum Number of Removals to Make Mountain Array",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "find-good-days-to-rob-the-bank",
+          "title": "Find Good Days to Rob the Bank",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-indices-of-stable-mountains",
+          "title": "Find Indices of Stable Mountains",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:52.498Z"
+    },
+    "find-minimum-in-rotated-sorted-array-ii": {
+      "id": 154,
+      "title": "Find Minimum in Rotated Sorted Array II",
+      "slug": "find-minimum-in-rotated-sorted-array-ii",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "47.0%",
+      "likes": 5373,
+      "dislikes": 533,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "find-minimum-in-rotated-sorted-array",
+          "title": "Find Minimum in Rotated Sorted Array",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:53.299Z"
+    },
+    "find-pivot-index": {
+      "id": 724,
+      "title": "Find Pivot Index",
+      "slug": "find-pivot-index",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "63.8%",
+      "likes": 9546,
+      "dislikes": 944,
+      "topicTags": [
+        "Array",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "Create an array sumLeft where sumLeft[i] is the sum of all the numbers to the left of index i.",
+        "Create an array sumRight where sumRight[i] is the sum of all the numbers to the right of index i.",
+        "For each index i, check if sumLeft[i] equals sumRight[i]. If so, return i. If no such i is found, return -1."
+      ],
+      "similar": [
+        {
+          "slug": "subarray-sum-equals-k",
+          "title": "Subarray Sum Equals K",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-the-middle-index-in-array",
+          "title": "Find the Middle Index in Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "number-of-ways-to-split-array",
+          "title": "Number of Ways to Split Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-sum-score-of-array",
+          "title": "Maximum Sum Score of Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "left-and-right-sum-differences",
+          "title": "Left and Right Sum Differences",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:54.030Z"
+    },
+    "find-smallest-letter-greater-than-target": {
+      "id": 744,
+      "title": "Find Smallest Letter Greater Than Target",
+      "slug": "find-smallest-letter-greater-than-target",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "59.6%",
+      "likes": 5230,
+      "dislikes": 2234,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [
+        "Try to find whether each of 26 next letters are in the given string array."
+      ],
+      "similar": [
+        {
+          "slug": "count-elements-with-strictly-smaller-and-greater-elements",
+          "title": "Count Elements With Strictly Smaller and Greater Elements ",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:54.883Z"
+    },
+    "find-the-duplicate-number": {
+      "id": 287,
+      "title": "Find the Duplicate Number",
+      "slug": "find-the-duplicate-number",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "64.9%",
+      "likes": 25867,
+      "dislikes": 5939,
+      "topicTags": [
+        "Array",
+        "Two Pointers",
+        "Binary Search",
+        "Bit Manipulation",
+        "Pigeonhole Principle",
+        "Floyd's Cycle Finding Algorithm"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "first-missing-positive",
+          "title": "First Missing Positive",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "single-number",
+          "title": "Single Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "linked-list-cycle-ii",
+          "title": "Linked List Cycle II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "missing-number",
+          "title": "Missing Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "set-mismatch",
+          "title": "Set Mismatch",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:55.639Z"
+    },
+    "find-the-k-beauty-of-a-number": {
+      "id": 2269,
+      "title": "Find the K-Beauty of a Number",
+      "slug": "find-the-k-beauty-of-a-number",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "63.9%",
+      "likes": 749,
+      "dislikes": 48,
+      "topicTags": [
+        "Math",
+        "String",
+        "Sliding Window"
+      ],
+      "hints": [
+        "We should check all the substrings of num with a length of k and see if it is a divisor of num.",
+        "We can more easily obtain the substrings by converting num into a string and converting back to an integer to check for divisibility."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:44:56.445Z"
+    },
+    "find-the-power-of-k-size-subarrays-i": {
+      "id": 3254,
+      "title": "Find the Power of K-Size Subarrays I",
+      "slug": "find-the-power-of-k-size-subarrays-i",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "61.9%",
+      "likes": 684,
+      "dislikes": 58,
+      "topicTags": [
+        "Array",
+        "Sliding Window"
+      ],
+      "hints": [
+        "Can we use a brute force solution with nested loops and HashSet?"
+      ],
+      "similar": [
+        {
+          "slug": "maximum-sum-of-distinct-subarrays-with-length-k",
+          "title": "Maximum Sum of Distinct Subarrays With Length K",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:57.315Z"
+    },
+    "finding-3-digit-even-numbers": {
+      "id": 2094,
+      "title": "Finding 3-Digit Even Numbers",
+      "slug": "finding-3-digit-even-numbers",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "78.6%",
+      "likes": 1629,
+      "dislikes": 346,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Recursion",
+        "Sorting",
+        "Enumeration"
+      ],
+      "hints": [
+        "The range of possible answers includes all even numbers between 100 and 999 inclusive. Could you check each possible answer to see if it could be formed from the digits in the array?"
+      ],
+      "similar": [
+        {
+          "slug": "find-numbers-with-even-number-of-digits",
+          "title": "Find Numbers with Even Number of Digits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "unique-3-digit-even-numbers",
+          "title": "Unique 3-Digit Even Numbers",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:58.231Z"
+    },
+    "first-bad-version": {
+      "id": 278,
+      "title": "First Bad Version",
+      "slug": "first-bad-version",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "47.6%",
+      "likes": 9153,
+      "dislikes": 3454,
+      "topicTags": [
+        "Binary Search",
+        "Interactive"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "find-first-and-last-position-of-element-in-sorted-array",
+          "title": "Find First and Last Position of Element in Sorted Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "search-insert-position",
+          "title": "Search Insert Position",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "guess-number-higher-or-lower",
+          "title": "Guess Number Higher or Lower",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:58.960Z"
+    },
+    "first-missing-positive": {
+      "id": 41,
+      "title": "First Missing Positive",
+      "slug": "first-missing-positive",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "43.7%",
+      "likes": 18692,
+      "dislikes": 1990,
+      "topicTags": [
+        "Array",
+        "Hash Table"
+      ],
+      "hints": [
+        "Think about how you would solve the problem in non-constant space.  Can you apply that logic to the existing space?",
+        "We don't care about duplicates or non-positive integers",
+        "Remember that O(2n) = O(n)"
+      ],
+      "similar": [
+        {
+          "slug": "missing-number",
+          "title": "Missing Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-the-duplicate-number",
+          "title": "Find the Duplicate Number",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-numbers-disappeared-in-an-array",
+          "title": "Find All Numbers Disappeared in an Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "couples-holding-hands",
+          "title": "Couples Holding Hands",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "smallest-number-in-infinite-set",
+          "title": "Smallest Number in Infinite Set",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-number-of-integers-to-choose-from-a-range-i",
+          "title": "Maximum Number of Integers to Choose From a Range I",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "smallest-missing-non-negative-integer-after-operations",
+          "title": "Smallest Missing Non-negative Integer After Operations",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-number-of-integers-to-choose-from-a-range-ii",
+          "title": "Maximum Number of Integers to Choose From a Range II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+          "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:44:59.721Z"
+    },
+    "flood-fill": {
+      "id": 733,
+      "title": "Flood Fill",
+      "slug": "flood-fill",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "68.9%",
+      "likes": 9678,
+      "dislikes": 966,
+      "topicTags": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Matrix"
+      ],
+      "hints": [
+        "Write a recursive function that paints the pixel if it's the correct color, then recurses on neighboring pixels."
+      ],
+      "similar": [
+        {
+          "slug": "island-perimeter",
+          "title": "Island Perimeter",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:00.504Z"
+    },
+    "four-divisors": {
+      "id": 1390,
+      "title": "Four Divisors",
+      "slug": "four-divisors",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "56.5%",
+      "likes": 900,
+      "dislikes": 223,
+      "topicTags": [
+        "Array",
+        "Math",
+        "Prime Factorization",
+        "Sieve Theory"
+      ],
+      "hints": [
+        "Find the divisors of each element in the array.",
+        "You only need to loop to the square root of a number to find its divisors."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:01.235Z"
+    },
+    "fruit-into-baskets": {
+      "id": 904,
+      "title": "Fruit Into Baskets",
+      "slug": "fruit-into-baskets",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "52.4%",
+      "likes": 6470,
+      "dislikes": 636,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Sliding Window"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "longest-nice-subarray",
+          "title": "Longest Nice Subarray",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "fruits-into-baskets-ii",
+          "title": "Fruits Into Baskets II",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:02.007Z"
+    },
+    "group-anagrams": {
+      "id": 49,
+      "title": "Group Anagrams",
+      "slug": "group-anagrams",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "73.3%",
+      "likes": 22543,
+      "dislikes": 776,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "String",
+        "Sorting"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "valid-anagram",
+          "title": "Valid Anagram",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "group-shifted-strings",
+          "title": "Group Shifted Strings",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-resultant-array-after-removing-anagrams",
+          "title": "Find Resultant Array After Removing Anagrams",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "count-anagrams",
+          "title": "Count Anagrams",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:02.766Z"
+    },
+    "guess-number-higher-or-lower": {
+      "id": 374,
+      "title": "Guess Number Higher or Lower",
+      "slug": "guess-number-higher-or-lower",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "58.3%",
+      "likes": 4348,
+      "dislikes": 703,
+      "topicTags": [
+        "Binary Search",
+        "Interactive"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "first-bad-version",
+          "title": "First Bad Version",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "guess-number-higher-or-lower-ii",
+          "title": "Guess Number Higher or Lower II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-k-closest-elements",
+          "title": "Find K Closest Elements",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:03.533Z"
+    },
+    "happy-number": {
+      "id": 202,
+      "title": "Happy Number",
+      "slug": "happy-number",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "60.2%",
+      "likes": 12195,
+      "dislikes": 1656,
+      "topicTags": [
+        "Hash Table",
+        "Math",
+        "Two Pointers",
+        "Floyd's Cycle Finding Algorithm"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "linked-list-cycle",
+          "title": "Linked List Cycle",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "add-digits",
+          "title": "Add Digits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "ugly-number",
+          "title": "Ugly Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-digits-of-string-after-convert",
+          "title": "Sum of Digits of String After Convert",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-addition-to-make-integer-beautiful",
+          "title": "Minimum Addition to Make Integer Beautiful",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "smallest-value-after-replacing-with-sum-of-prime-factors",
+          "title": "Smallest Value After Replacing With Sum of Prime Factors",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-the-digits-that-divide-a-number",
+          "title": "Count the Digits That Divide a Number",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:04.338Z"
+    },
+    "implement-queue-using-stacks": {
+      "id": 232,
+      "title": "Implement Queue using Stacks",
+      "slug": "implement-queue-using-stacks",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "70.3%",
+      "likes": 8795,
+      "dislikes": 498,
+      "topicTags": [
+        "Stack",
+        "Design",
+        "Queue"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "implement-stack-using-queues",
+          "title": "Implement Stack using Queues",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:05.379Z"
+    },
+    "intersection-of-two-arrays-ii": {
+      "id": 350,
+      "title": "Intersection of Two Arrays II",
+      "slug": "intersection-of-two-arrays-ii",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "60.3%",
+      "likes": 8276,
+      "dislikes": 1011,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Two Pointers",
+        "Binary Search",
+        "Sorting"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "intersection-of-two-arrays",
+          "title": "Intersection of Two Arrays",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-common-characters",
+          "title": "Find Common Characters",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-the-difference-of-two-arrays",
+          "title": "Find the Difference of Two Arrays",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "choose-numbers-from-two-arrays-in-range",
+          "title": "Choose Numbers From Two Arrays in Range",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "intersection-of-multiple-arrays",
+          "title": "Intersection of Multiple Arrays",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-common-value",
+          "title": "Minimum Common Value",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:06.276Z"
+    },
+    "is-graph-bipartite": {
+      "id": 785,
+      "title": "Is Graph Bipartite?",
+      "slug": "is-graph-bipartite",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "59.9%",
+      "likes": 9432,
+      "dislikes": 421,
+      "topicTags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union-Find",
+        "Graph Theory",
+        "Graph Coloring",
+        "Bipartite Graph"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "divide-nodes-into-the-maximum-number-of-groups",
+          "title": "Divide Nodes Into the Maximum Number of Groups",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:07.004Z"
+    },
+    "is-subsequence": {
+      "id": 392,
+      "title": "Is Subsequence",
+      "slug": "is-subsequence",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "49.4%",
+      "likes": 10987,
+      "dislikes": 628,
+      "topicTags": [
+        "Two Pointers",
+        "String",
+        "Dynamic Programming"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "number-of-matching-subsequences",
+          "title": "Number of Matching Subsequences",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "shortest-way-to-form-string",
+          "title": "Shortest Way to Form String",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "append-characters-to-string-to-make-subsequence",
+          "title": "Append Characters to String to Make Subsequence",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "make-string-a-subsequence-using-cyclic-increments",
+          "title": "Make String a Subsequence Using Cyclic Increments",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:07.727Z"
+    },
+    "island-perimeter": {
+      "id": 463,
+      "title": "Island Perimeter",
+      "slug": "island-perimeter",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "74.4%",
+      "likes": 7393,
+      "dislikes": 434,
+      "topicTags": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "max-area-of-island",
+          "title": "Max Area of Island",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "flood-fill",
+          "title": "Flood Fill",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "coloring-a-border",
+          "title": "Coloring A Border",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:08.509Z"
+    },
+    "kth-missing-positive-number": {
+      "id": 1539,
+      "title": "Kth Missing Positive Number",
+      "slug": "kth-missing-positive-number",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "63.9%",
+      "likes": 8199,
+      "dislikes": 587,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [
+        "Keep track of how many positive numbers are missing as you scan the array."
+      ],
+      "similar": [
+        {
+          "slug": "append-k-integers-with-minimal-sum",
+          "title": "Append K Integers With Minimal Sum",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:09.225Z"
+    },
+    "letter-combinations-of-a-phone-number": {
+      "id": 17,
+      "title": "Letter Combinations of a Phone Number",
+      "slug": "letter-combinations-of-a-phone-number",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "66.8%",
+      "likes": 21345,
+      "dislikes": 1145,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Backtracking"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "generate-parentheses",
+          "title": "Generate Parentheses",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "combination-sum",
+          "title": "Combination Sum",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "binary-watch",
+          "title": "Binary Watch",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "count-number-of-texts",
+          "title": "Count Number of Texts",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-number-of-pushes-to-type-word-i",
+          "title": "Minimum Number of Pushes to Type Word I",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-number-of-pushes-to-type-word-ii",
+          "title": "Minimum Number of Pushes to Type Word II",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:09.982Z"
+    },
+    "longest-common-prefix": {
+      "id": 14,
+      "title": "Longest Common Prefix",
+      "slug": "longest-common-prefix",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "48.3%",
+      "likes": 21847,
+      "dislikes": 4968,
+      "topicTags": [
+        "Array",
+        "String",
+        "Trie"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+          "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-the-length-of-the-longest-common-prefix",
+          "title": "Find the Length of the Longest Common Prefix",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-common-suffix-queries",
+          "title": "Longest Common Suffix Queries",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "longest-common-prefix-after-at-most-one-removal",
+          "title": "Longest Common Prefix After at Most One Removal",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:10.726Z"
+    },
+    "longest-harmonious-subsequence": {
+      "id": 594,
+      "title": "Longest Harmonious Subsequence",
+      "slug": "longest-harmonious-subsequence",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "65.1%",
+      "likes": 2879,
+      "dislikes": 358,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Sliding Window",
+        "Sorting",
+        "Counting"
+      ],
+      "hints": [],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:11.653Z"
+    },
+    "longest-nice-substring": {
+      "id": 1763,
+      "title": "Longest Nice Substring",
+      "slug": "longest-nice-substring",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "64.7%",
+      "likes": 1535,
+      "dislikes": 990,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Divide and Conquer",
+        "Bit Manipulation",
+        "Sliding Window"
+      ],
+      "hints": [
+        "Brute force and check each substring to see if it is nice."
+      ],
+      "similar": [
+        {
+          "slug": "number-of-good-paths",
+          "title": "Number of Good Paths",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:12.435Z"
+    },
+    "longest-palindromic-substring": {
+      "id": 5,
+      "title": "Longest Palindromic Substring",
+      "slug": "longest-palindromic-substring",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "38.6%",
+      "likes": 33147,
+      "dislikes": 2035,
+      "topicTags": [
+        "Two Pointers",
+        "String",
+        "Dynamic Programming",
+        "Manacher"
+      ],
+      "hints": [
+        "How can we reuse a previously computed palindrome to compute a larger palindrome?",
+        "If “aba” is a palindrome, is “xabax” a palindrome? Similarly is “xabay” a palindrome?",
+        "Complexity based hint:</br>\r\nIf we use brute-force and check whether for every start and end position a substring is a palindrome we have O(n^2) start - end pairs and O(n) palindromic checks. Can we reduce the time for palindromic checks to O(1) by reusing some previous computation."
+      ],
+      "similar": [
+        {
+          "slug": "shortest-palindrome",
+          "title": "Shortest Palindrome",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "palindrome-permutation",
+          "title": "Palindrome Permutation",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "palindrome-pairs",
+          "title": "Palindrome Pairs",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "longest-palindromic-subsequence",
+          "title": "Longest Palindromic Subsequence",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "palindromic-substrings",
+          "title": "Palindromic Substrings",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-number-of-non-overlapping-palindrome-substrings",
+          "title": "Maximum Number of Non-overlapping Palindrome Substrings",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:13.366Z"
+    },
+    "longest-repeating-character-replacement": {
+      "id": 424,
+      "title": "Longest Repeating Character Replacement",
+      "slug": "longest-repeating-character-replacement",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "60.6%",
+      "likes": 13528,
+      "dislikes": 801,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "longest-substring-with-at-most-k-distinct-characters",
+          "title": "Longest Substring with At Most K Distinct Characters",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "max-consecutive-ones-iii",
+          "title": "Max Consecutive Ones III",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-number-of-operations-to-make-array-continuous",
+          "title": "Minimum Number of Operations to Make Array Continuous",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "maximize-the-confusion-of-an-exam",
+          "title": "Maximize the Confusion of an Exam",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-substring-of-one-repeating-character",
+          "title": "Longest Substring of One Repeating Character",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:14.284Z"
+    },
+    "longest-subarray-of-1s-after-deleting-one-element": {
+      "id": 1493,
+      "title": "Longest Subarray of 1's After Deleting One Element",
+      "slug": "longest-subarray-of-1s-after-deleting-one-element",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "71.6%",
+      "likes": 4903,
+      "dislikes": 114,
+      "topicTags": [
+        "Array",
+        "Dynamic Programming",
+        "Sliding Window"
+      ],
+      "hints": [
+        "Maintain a sliding window where there is at most one zero in it."
+      ],
+      "similar": [
+        {
+          "slug": "max-consecutive-ones-iii",
+          "title": "Max Consecutive Ones III",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:15.007Z"
+    },
+    "map-of-highest-peak": {
+      "id": 1765,
+      "title": "Map of Highest Peak",
+      "slug": "map-of-highest-peak",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "76.3%",
+      "likes": 1602,
+      "dislikes": 117,
+      "topicTags": [
+        "Array",
+        "Breadth-First Search",
+        "Matrix"
+      ],
+      "hints": [
+        "Set each water cell to be 0. The height of each cell is limited by its closest water cell.",
+        "Perform a multi-source BFS with all the water cells as sources."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:15.846Z"
+    },
+    "max-consecutive-ones": {
+      "id": 485,
+      "title": "Max Consecutive Ones",
+      "slug": "max-consecutive-ones",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "66.1%",
+      "likes": 7080,
+      "dislikes": 503,
+      "topicTags": [
+        "Array"
+      ],
+      "hints": [
+        "You need to think about two things as far as any window is concerned. One is the starting point for the window. How do you detect that a new window of 1s has started? The next part is detecting the ending point for this window.\r\n\r\nHow do you detect the ending point for an existing window? If you figure these two things out, you will be able to detect the windows of consecutive ones. All that remains afterward is to find the longest such window and return the size."
+      ],
+      "similar": [
+        {
+          "slug": "max-consecutive-ones-ii",
+          "title": "Max Consecutive Ones II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "max-consecutive-ones-iii",
+          "title": "Max Consecutive Ones III",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "consecutive-characters",
+          "title": "Consecutive Characters",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "longer-contiguous-segments-of-ones-than-zeros",
+          "title": "Longer Contiguous Segments of Ones than Zeros",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "length-of-the-longest-alphabetical-continuous-substring",
+          "title": "Length of the Longest Alphabetical Continuous Substring",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-enemy-forts-that-can-be-captured",
+          "title": "Maximum Enemy Forts That Can Be Captured",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:16.601Z"
+    },
+    "max-consecutive-ones-iii": {
+      "id": 1004,
+      "title": "Max Consecutive Ones III",
+      "slug": "max-consecutive-ones-iii",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "68.4%",
+      "likes": 10793,
+      "dislikes": 195,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Sliding Window",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "One thing's for sure, we will only flip a zero if it extends an existing window of 1s. Otherwise, there's no point in doing it, right? Think Sliding Window!",
+        "Since we know this problem can be solved using the sliding window construct, we might as well focus in that direction for hints. Basically, in a given window, we can never have > K zeros, right?",
+        "We don't have a fixed size window in this case. The window size can grow and shrink depending upon the number of zeros we have (we don't actually have to flip the zeros here!).",
+        "The way to shrink or expand a window would be based on the number of zeros that can still be flipped and so on."
+      ],
+      "similar": [
+        {
+          "slug": "longest-substring-with-at-most-k-distinct-characters",
+          "title": "Longest Substring with At Most K Distinct Characters",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-repeating-character-replacement",
+          "title": "Longest Repeating Character Replacement",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "max-consecutive-ones",
+          "title": "Max Consecutive Ones",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "max-consecutive-ones-ii",
+          "title": "Max Consecutive Ones II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-subarray-of-1s-after-deleting-one-element",
+          "title": "Longest Subarray of 1's After Deleting One Element",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximize-the-confusion-of-an-exam",
+          "title": "Maximize the Confusion of an Exam",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-recolors-to-get-k-consecutive-black-blocks",
+          "title": "Minimum Recolors to Get K Consecutive Black Blocks",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "longest-nice-subarray",
+          "title": "Longest Nice Subarray",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-sum-of-distinct-subarrays-with-length-k",
+          "title": "Maximum Sum of Distinct Subarrays With Length K",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-enemy-forts-that-can-be-captured",
+          "title": "Maximum Enemy Forts That Can Be Captured",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:17.445Z"
+    },
+    "maximum-capacity-within-budget": {
+      "id": 3814,
+      "title": "Maximum Capacity Within Budget",
+      "slug": "maximum-capacity-within-budget",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "20.8%",
+      "likes": 202,
+      "dislikes": 18,
+      "topicTags": [
+        "Array",
+        "Two Pointers",
+        "Binary Search",
+        "Sorting"
+      ],
+      "hints": [
+        "Sort machines by increasing <code>costs</code>, keeping <code>capacity</code> aligned.",
+        "Build a prefix array where <code>prefMax[i]</code> stores the maximum <code>capacity</code> among machines with index <code><= i</code>.",
+        "For selecting one machine, take the maximum <code>capacity</code> among all machines with <code>cost < budget</code>.",
+        "For selecting two machines, fix machine <code>i</code> and binary search the largest index <code>j < i</code> with <code>costs[j] < budget - costs[i]</code>.",
+        "Update the answer with <code>capacity[i] + prefMax[j]</code> whenever such <code>j</code> exists."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:18.283Z"
+    },
+    "maximum-difference-between-even-and-odd-frequency-i": {
+      "id": 3442,
+      "title": "Maximum Difference Between Even and Odd Frequency I",
+      "slug": "maximum-difference-between-even-and-odd-frequency-i",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "60.6%",
+      "likes": 404,
+      "dislikes": 71,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Counting"
+      ],
+      "hints": [
+        "Use a frequency map to identify the maximum odd and minimum even frequencies. Then, calculate their difference."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:19.032Z"
+    },
+    "maximum-length-of-a-concatenated-string-with-unique-characters": {
+      "id": 1239,
+      "title": "Maximum Length of a Concatenated String with Unique Characters",
+      "slug": "maximum-length-of-a-concatenated-string-with-unique-characters",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "54.9%",
+      "likes": 4607,
+      "dislikes": 340,
+      "topicTags": [
+        "Array",
+        "String",
+        "Backtracking",
+        "Bit Manipulation"
+      ],
+      "hints": [
+        "You can try all combinations and keep mask of characters you have.",
+        "You can use DP."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:20.036Z"
+    },
+    "maximum-matrix-sum": {
+      "id": 1975,
+      "title": "Maximum Matrix Sum",
+      "slug": "maximum-matrix-sum",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "67.5%",
+      "likes": 1631,
+      "dislikes": 75,
+      "topicTags": [
+        "Array",
+        "Greedy",
+        "Matrix"
+      ],
+      "hints": [
+        "Try to use the operation so that each row has only one negative number.",
+        "If you have only one negative element you cannot convert it to positive."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:20.769Z"
+    },
+    "maximum-number-of-vowels-in-a-substring-of-given-length": {
+      "id": 1456,
+      "title": "Maximum Number of Vowels in a Substring of Given Length",
+      "slug": "maximum-number-of-vowels-in-a-substring-of-given-length",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "62.9%",
+      "likes": 4040,
+      "dislikes": 154,
+      "topicTags": [
+        "String",
+        "Sliding Window"
+      ],
+      "hints": [
+        "Keep a window of size k and maintain the number of vowels in it.",
+        "Keep moving the window and update the number of vowels while moving. Answer is max number of vowels of any window."
+      ],
+      "similar": [
+        {
+          "slug": "maximum-white-tiles-covered-by-a-carpet",
+          "title": "Maximum White Tiles Covered by a Carpet",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-recolors-to-get-k-consecutive-black-blocks",
+          "title": "Minimum Recolors to Get K Consecutive Black Blocks",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "length-of-the-longest-alphabetical-continuous-substring",
+          "title": "Length of the Longest Alphabetical Continuous Substring",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:21.483Z"
+    },
+    "maximum-score-after-splitting-a-string": {
+      "id": 1422,
+      "title": "Maximum Score After Splitting a String",
+      "slug": "maximum-score-after-splitting-a-string",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "65.1%",
+      "likes": 2213,
+      "dislikes": 91,
+      "topicTags": [
+        "String",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "Precompute a prefix sum of ones ('1').",
+        "Iterate from left to right counting the number of zeros ('0'), then use the precomputed prefix sum for counting ones ('1'). Update the answer."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:22.219Z"
+    },
+    "median-of-two-sorted-arrays": {
+      "id": 4,
+      "title": "Median of Two Sorted Arrays",
+      "slug": "median-of-two-sorted-arrays",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "47.6%",
+      "likes": 32712,
+      "dislikes": 3620,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Divide and Conquer"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "median-of-a-row-wise-sorted-matrix",
+          "title": "Median of a Row Wise Sorted Matrix",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:23.209Z"
+    },
+    "minimum-difference-between-highest-and-lowest-of-k-scores": {
+      "id": 1984,
+      "title": "Minimum Difference Between Highest and Lowest of K Scores",
+      "slug": "minimum-difference-between-highest-and-lowest-of-k-scores",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "66.4%",
+      "likes": 1484,
+      "dislikes": 381,
+      "topicTags": [
+        "Array",
+        "Sliding Window",
+        "Sorting"
+      ],
+      "hints": [
+        "For the difference between the highest and lowest element to be minimized, the k chosen scores need to be as close to each other as possible.",
+        "What if the array was sorted?",
+        "After sorting the scores, any contiguous k scores are as close to each other as possible.",
+        "Apply a sliding window solution to iterate over each contiguous k scores, and find the minimum of the differences of all windows."
+      ],
+      "similar": [
+        {
+          "slug": "array-partition",
+          "title": "Array Partition",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:23.925Z"
+    },
+    "minimum-size-subarray-sum": {
+      "id": 209,
+      "title": "Minimum Size Subarray Sum",
+      "slug": "minimum-size-subarray-sum",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "52.9%",
+      "likes": 14772,
+      "dislikes": 553,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Sliding Window",
+        "Prefix Sum"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "minimum-window-substring",
+          "title": "Minimum Window Substring",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "maximum-size-subarray-sum-equals-k",
+          "title": "Maximum Size Subarray Sum Equals k",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-length-of-repeated-subarray",
+          "title": "Maximum Length of Repeated Subarray",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-operations-to-reduce-x-to-zero",
+          "title": "Minimum Operations to Reduce X to Zero",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "k-radius-subarray-averages",
+          "title": "K Radius Subarray Averages",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-product-after-k-increments",
+          "title": "Maximum Product After K Increments",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "shortest-subarray-with-or-at-least-k-i",
+          "title": "Shortest Subarray With OR at Least K I",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-positive-sum-subarray",
+          "title": "Minimum Positive Sum Subarray ",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:24.828Z"
+    },
+    "minimum-value-to-get-positive-step-by-step-sum": {
+      "id": 1413,
+      "title": "Minimum Value to Get Positive Step by Step Sum",
+      "slug": "minimum-value-to-get-positive-step-by-step-sum",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "64.9%",
+      "likes": 1705,
+      "dislikes": 391,
+      "topicTags": [
+        "Array",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "Find the minimum prefix sum."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:25.577Z"
+    },
+    "minimum-window-substring": {
+      "id": 76,
+      "title": "Minimum Window Substring",
+      "slug": "minimum-window-substring",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "48.4%",
+      "likes": 20671,
+      "dislikes": 867,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ],
+      "hints": [
+        "Use two pointers to create a window of letters in s, which would have all the characters from t.",
+        "Expand the right pointer until all the characters of t are covered.",
+        "Once all the characters are covered, move the left pointer and ensure that all the characters are still covered to minimize the subarray size.",
+        "Continue expanding the right and left pointers until you reach the end of s."
+      ],
+      "similar": [
+        {
+          "slug": "substring-with-concatenation-of-all-words",
+          "title": "Substring with Concatenation of All Words",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "minimum-size-subarray-sum",
+          "title": "Minimum Size Subarray Sum",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "sliding-window-maximum",
+          "title": "Sliding Window Maximum",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "permutation-in-string",
+          "title": "Permutation in String",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "smallest-range-covering-elements-from-k-lists",
+          "title": "Smallest Range Covering Elements from K Lists",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "minimum-window-subsequence",
+          "title": "Minimum Window Subsequence",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "count-substrings-that-can-be-rearranged-to-contain-a-string-ii",
+          "title": "Count Substrings That Can Be Rearranged to Contain a String II",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "count-substrings-that-can-be-rearranged-to-contain-a-string-i",
+          "title": "Count Substrings That Can Be Rearranged to Contain a String I",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:26.325Z"
+    },
+    "missing-number": {
+      "id": 268,
+      "title": "Missing Number",
+      "slug": "missing-number",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "72.6%",
+      "likes": 14592,
+      "dislikes": 3485,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Math",
+        "Binary Search",
+        "Bit Manipulation",
+        "Sorting"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "first-missing-positive",
+          "title": "First Missing Positive",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "single-number",
+          "title": "Single Number",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-the-duplicate-number",
+          "title": "Find the Duplicate Number",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "couples-holding-hands",
+          "title": "Couples Holding Hands",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "find-unique-binary-string",
+          "title": "Find Unique Binary String",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-the-largest-almost-missing-integer",
+          "title": "Find the Largest Almost Missing Integer",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:27.078Z"
+    },
+    "move-zeroes": {
+      "id": 283,
+      "title": "Move Zeroes",
+      "slug": "move-zeroes",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "64.4%",
+      "likes": 19883,
+      "dislikes": 623,
+      "topicTags": [
+        "Array",
+        "Two Pointers"
+      ],
+      "hints": [
+        "<b>In-place</b> means we should not be allocating any space for extra array. But we are allowed to modify the existing array. However, as a first step, try coming up with a solution that makes use of additional space. For this problem as well, first apply the idea discussed using an additional array and the in-place solution will pop up eventually.",
+        "A <b>two-pointer</b> approach could be helpful here. The idea would be to have one pointer for iterating the array and another pointer that just works on the non-zero elements of the array."
+      ],
+      "similar": [
+        {
+          "slug": "remove-element",
+          "title": "Remove Element",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "apply-operations-to-an-array",
+          "title": "Apply Operations to an Array",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:27.810Z"
+    },
+    "n-queens": {
+      "id": 51,
+      "title": "N-Queens",
+      "slug": "n-queens",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "76.4%",
+      "likes": 14711,
+      "dislikes": 361,
+      "topicTags": [
+        "Array",
+        "Backtracking",
+        "Algorithm X"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "n-queens-ii",
+          "title": "N-Queens II",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "grid-illumination",
+          "title": "Grid Illumination",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:28.554Z"
+    },
+    "n-queens-ii": {
+      "id": 52,
+      "title": "N-Queens II",
+      "slug": "n-queens-ii",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "79.3%",
+      "likes": 4354,
+      "dislikes": 284,
+      "topicTags": [
+        "Backtracking",
+        "Algorithm X"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "n-queens",
+          "title": "N-Queens",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:29.332Z"
+    },
+    "next-greater-element-i": {
+      "id": 496,
+      "title": "Next Greater Element I",
+      "slug": "next-greater-element-i",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "76.8%",
+      "likes": 10273,
+      "dislikes": 1150,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Stack",
+        "Monotonic Stack"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "next-greater-element-ii",
+          "title": "Next Greater Element II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "next-greater-element-iii",
+          "title": "Next Greater Element III",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "daily-temperatures",
+          "title": "Daily Temperatures",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "sum-of-subarray-ranges",
+          "title": "Sum of Subarray Ranges",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "sum-of-total-strength-of-wizards",
+          "title": "Sum of Total Strength of Wizards",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "next-greater-element-iv",
+          "title": "Next Greater Element IV",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "remove-nodes-from-linked-list",
+          "title": "Remove Nodes From Linked List",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+          "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:30.285Z"
+    },
+    "number-of-1-bits": {
+      "id": 191,
+      "title": "Number of 1 Bits",
+      "slug": "number-of-1-bits",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "77.5%",
+      "likes": 7249,
+      "dislikes": 1375,
+      "topicTags": [
+        "Divide and Conquer",
+        "Bit Manipulation"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "reverse-bits",
+          "title": "Reverse Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "power-of-two",
+          "title": "Power of Two",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "counting-bits",
+          "title": "Counting Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "binary-watch",
+          "title": "Binary Watch",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "hamming-distance",
+          "title": "Hamming Distance",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "binary-number-with-alternating-bits",
+          "title": "Binary Number with Alternating Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "prime-number-of-set-bits-in-binary-representation",
+          "title": "Prime Number of Set Bits in Binary Representation",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "convert-date-to-binary",
+          "title": "Convert Date to Binary",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:31.048Z"
+    },
+    "number-of-centered-subarrays": {
+      "id": 3804,
+      "title": "Number of Centered Subarrays",
+      "slug": "number-of-centered-subarrays",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "67.5%",
+      "likes": 81,
+      "dislikes": 4,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Enumeration"
+      ],
+      "hints": [
+        "Generate all subarrays and use a hashmap to check whether the sum exists in the generated subarrays."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:31.957Z"
+    },
+    "number-of-enclaves": {
+      "id": 1020,
+      "title": "Number of Enclaves",
+      "slug": "number-of-enclaves",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "72.3%",
+      "likes": 4735,
+      "dislikes": 93,
+      "topicTags": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union-Find",
+        "Matrix"
+      ],
+      "hints": [
+        "Can you model this problem as a graph problem?  Create n * m + 1 nodes where n * m nodes represents each cell of the map and one extra node to represent the exterior of the map.",
+        "In the map add edges between neighbors on land cells. And add edges between the exterior and land nodes which are in the boundary.\r\nReturn as answer the number of nodes that are not reachable from the exterior node."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:32.686Z"
+    },
+    "number-of-islands": {
+      "id": 200,
+      "title": "Number of Islands",
+      "slug": "number-of-islands",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "65.1%",
+      "likes": 25371,
+      "dislikes": 627,
+      "topicTags": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union-Find",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "surrounded-regions",
+          "title": "Surrounded Regions",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "walls-and-gates",
+          "title": "Walls and Gates",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "number-of-islands-ii",
+          "title": "Number of Islands II",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "number-of-connected-components-in-an-undirected-graph",
+          "title": "Number of Connected Components in an Undirected Graph",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "battleships-in-a-board",
+          "title": "Battleships in a Board",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "number-of-distinct-islands",
+          "title": "Number of Distinct Islands",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "max-area-of-island",
+          "title": "Max Area of Island",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-sub-islands",
+          "title": "Count Sub Islands",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-groups-of-farmland",
+          "title": "Find All Groups of Farmland",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-unreachable-pairs-of-nodes-in-an-undirected-graph",
+          "title": "Count Unreachable Pairs of Nodes in an Undirected Graph",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-number-of-fish-in-a-grid",
+          "title": "Maximum Number of Fish in a Grid",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-islands-with-total-value-divisible-by-k",
+          "title": "Count Islands With Total Value Divisible by K",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:33.523Z"
+    },
+    "number-of-provinces": {
+      "id": 547,
+      "title": "Number of Provinces",
+      "slug": "number-of-provinces",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "71.1%",
+      "likes": 11421,
+      "dislikes": 436,
+      "topicTags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union-Find",
+        "Graph Theory"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "number-of-connected-components-in-an-undirected-graph",
+          "title": "Number of Connected Components in an Undirected Graph",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "robot-return-to-origin",
+          "title": "Robot Return to Origin",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sentence-similarity",
+          "title": "Sentence Similarity",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sentence-similarity-ii",
+          "title": "Sentence Similarity II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "the-earliest-moment-when-everyone-become-friends",
+          "title": "The Earliest Moment When Everyone Become Friends",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "detonate-the-maximum-bombs",
+          "title": "Detonate the Maximum Bombs",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:34.270Z"
+    },
+    "number-of-steps-to-reduce-a-number-to-zero": {
+      "id": 1342,
+      "title": "Number of Steps to Reduce a Number to Zero",
+      "slug": "number-of-steps-to-reduce-a-number-to-zero",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "85.9%",
+      "likes": 4330,
+      "dislikes": 183,
+      "topicTags": [
+        "Math",
+        "Bit Manipulation"
+      ],
+      "hints": [
+        "Simulate the process to get the final answer."
+      ],
+      "similar": [
+        {
+          "slug": "minimum-moves-to-reach-target-score",
+          "title": "Minimum Moves to Reach Target Score",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-operations-to-obtain-zero",
+          "title": "Count Operations to Obtain Zero",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:35.281Z"
+    },
+    "number-of-substrings-containing-all-three-characters": {
+      "id": 1358,
+      "title": "Number of Substrings Containing All Three Characters",
+      "slug": "number-of-substrings-containing-all-three-characters",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "74.4%",
+      "likes": 4852,
+      "dislikes": 93,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ],
+      "hints": [
+        "For each position we simply need to find the first occurrence of a/b/c on or after this position.",
+        "So we can pre-compute three link-list of indices of each a, b, and c."
+      ],
+      "similar": [
+        {
+          "slug": "vowels-of-all-substrings",
+          "title": "Vowels of All Substrings",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-complete-substrings",
+          "title": "Count Complete Substrings",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:36.043Z"
+    },
+    "path-with-maximum-gold": {
+      "id": 1219,
+      "title": "Path with Maximum Gold",
+      "slug": "path-with-maximum-gold",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "68.6%",
+      "likes": 3472,
+      "dislikes": 108,
+      "topicTags": [
+        "Array",
+        "Backtracking",
+        "Matrix"
+      ],
+      "hints": [
+        "Use recursion to try all such paths and find the one with the maximum value."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:36.880Z"
+    },
+    "peak-index-in-a-mountain-array": {
+      "id": 852,
+      "title": "Peak Index in a Mountain Array",
+      "slug": "peak-index-in-a-mountain-array",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "66.7%",
+      "likes": 8676,
+      "dislikes": 1959,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Ternary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "find-peak-element",
+          "title": "Find Peak Element",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-in-mountain-array",
+          "title": "Find in Mountain Array",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "minimum-number-of-removals-to-make-mountain-array",
+          "title": "Minimum Number of Removals to Make Mountain Array",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:37.643Z"
+    },
+    "permutation-in-string": {
+      "id": 567,
+      "title": "Permutation in String",
+      "slug": "permutation-in-string",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "49.7%",
+      "likes": 13254,
+      "dislikes": 529,
+      "topicTags": [
+        "Hash Table",
+        "Two Pointers",
+        "String",
+        "Sliding Window"
+      ],
+      "hints": [
+        "Obviously, brute force will result in TLE. Think of something else.",
+        "How will you check whether one string is a permutation of another string?",
+        "One way is to sort the string and then compare. But, Is there a better way?",
+        "If one string is a permutation of another string then they must have one common metric. What is that?",
+        "Both strings must have same character frequencies, if  one is permutation of another. Which data structure should be used to store frequencies?",
+        "What about hash table?  An array of size 26?"
+      ],
+      "similar": [
+        {
+          "slug": "minimum-window-substring",
+          "title": "Minimum Window Substring",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "find-all-anagrams-in-a-string",
+          "title": "Find All Anagrams in a String",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:38.454Z"
+    },
+    "permutations": {
+      "id": 46,
+      "title": "Permutations",
+      "slug": "permutations",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "82.3%",
+      "likes": 21149,
+      "dislikes": 390,
+      "topicTags": [
+        "Array",
+        "Backtracking"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "next-permutation",
+          "title": "Next Permutation",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "permutations-ii",
+          "title": "Permutations II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "permutation-sequence",
+          "title": "Permutation Sequence",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "combinations",
+          "title": "Combinations",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:39.219Z"
+    },
+    "permutations-ii": {
+      "id": 47,
+      "title": "Permutations II",
+      "slug": "permutations-ii",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "64.2%",
+      "likes": 9280,
+      "dislikes": 166,
+      "topicTags": [
+        "Array",
+        "Backtracking",
+        "Sorting"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "next-permutation",
+          "title": "Next Permutation",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "permutations",
+          "title": "Permutations",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "palindrome-permutation-ii",
+          "title": "Palindrome Permutation II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "number-of-squareful-arrays",
+          "title": "Number of Squareful Arrays",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:39.965Z"
+    },
+    "plus-one": {
+      "id": 66,
+      "title": "Plus One",
+      "slug": "plus-one",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "50.6%",
+      "likes": 12094,
+      "dislikes": 5621,
+      "topicTags": [
+        "Array",
+        "Math"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "multiply-strings",
+          "title": "Multiply Strings",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "add-binary",
+          "title": "Add Binary",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "plus-one-linked-list",
+          "title": "Plus One Linked List",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "add-to-array-form-of-integer",
+          "title": "Add to Array-Form of Integer",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-operations-to-reduce-an-integer-to-0",
+          "title": "Minimum Operations to Reduce an Integer to 0",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:40.740Z"
+    },
+    "power-of-four": {
+      "id": 342,
+      "title": "Power of Four",
+      "slug": "power-of-four",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "52.6%",
+      "likes": 4524,
+      "dislikes": 424,
+      "topicTags": [
+        "Math",
+        "Bit Manipulation",
+        "Recursion"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "power-of-two",
+          "title": "Power of Two",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "power-of-three",
+          "title": "Power of Three",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:41.531Z"
+    },
+    "power-of-two": {
+      "id": 231,
+      "title": "Power of Two",
+      "slug": "power-of-two",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "50.5%",
+      "likes": 8221,
+      "dislikes": 510,
+      "topicTags": [
+        "Math",
+        "Bit Manipulation",
+        "Recursion"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "number-of-1-bits",
+          "title": "Number of 1 Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "power-of-three",
+          "title": "Power of Three",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "power-of-four",
+          "title": "Power of Four",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:42.283Z"
+    },
+    "powx-n": {
+      "id": 50,
+      "title": "Pow(x, n)",
+      "slug": "powx-n",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "39.3%",
+      "likes": 11957,
+      "dislikes": 10634,
+      "topicTags": [
+        "Math",
+        "Recursion"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "sqrtx",
+          "title": "Sqrt(x)",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "super-pow",
+          "title": "Super Pow",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-collisions-of-monkeys-on-a-polygon",
+          "title": "Count Collisions of Monkeys on a Polygon",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:43.109Z"
+    },
+    "range-sum-query-immutable": {
+      "id": 303,
+      "title": "Range Sum Query - Immutable",
+      "slug": "range-sum-query-immutable",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "73.4%",
+      "likes": 3979,
+      "dislikes": 2033,
+      "topicTags": [
+        "Array",
+        "Design",
+        "Prefix Sum"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "range-sum-query-2d-immutable",
+          "title": "Range Sum Query 2D - Immutable",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "range-sum-query-mutable",
+          "title": "Range Sum Query - Mutable",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-size-subarray-sum-equals-k",
+          "title": "Maximum Size Subarray Sum Equals k",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "sum-of-variable-length-subarrays",
+          "title": "Sum of Variable Length Subarrays",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:43.887Z"
+    },
+    "range-sum-query-mutable": {
+      "id": 307,
+      "title": "Range Sum Query - Mutable",
+      "slug": "range-sum-query-mutable",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "43.8%",
+      "likes": 5236,
+      "dislikes": 274,
+      "topicTags": [
+        "Array",
+        "Divide and Conquer",
+        "Design",
+        "Binary Indexed Tree",
+        "Segment Tree",
+        "Sqrt Decomposition"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "range-sum-query-immutable",
+          "title": "Range Sum Query - Immutable",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "range-sum-query-2d-mutable",
+          "title": "Range Sum Query 2D - Mutable",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "shifting-letters-ii",
+          "title": "Shifting Letters II",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:44.703Z"
+    },
+    "remove-duplicates-from-sorted-array": {
+      "id": 26,
+      "title": "Remove Duplicates from Sorted Array",
+      "slug": "remove-duplicates-from-sorted-array",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "63.7%",
+      "likes": 19763,
+      "dislikes": 20633,
+      "topicTags": [
+        "Array",
+        "Two Pointers"
+      ],
+      "hints": [
+        "In this problem, the key point to focus on is the input array being sorted. As far as duplicate elements are concerned, what is their positioning in the array when the given array is sorted? Look at the image below for the answer. If we know the position of one of the elements, do we also know the positioning of all the duplicate elements?\r\n\r\n<br>\r\n<img src=\"https://assets.leetcode.com/uploads/2019/10/20/hint_rem_dup.png\" width=\"500\"/>",
+        "We need to modify the array in-place and the size of the final array would potentially be smaller than the size of the input array. So, we ought to use a two-pointer approach here. One, that would keep track of the current element in the original array and another one for just the unique elements.",
+        "Essentially, once an element is encountered, you simply need to <b>bypass</b> its duplicates and move on to the next unique element."
+      ],
+      "similar": [
+        {
+          "slug": "remove-element",
+          "title": "Remove Element",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "remove-duplicates-from-sorted-array-ii",
+          "title": "Remove Duplicates from Sorted Array II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "apply-operations-to-an-array",
+          "title": "Apply Operations to an Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-distances",
+          "title": "Sum of Distances",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:45.617Z"
+    },
+    "remove-duplicates-from-sorted-array-ii": {
+      "id": 80,
+      "title": "Remove Duplicates from Sorted Array II",
+      "slug": "remove-duplicates-from-sorted-array-ii",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "65.3%",
+      "likes": 8470,
+      "dislikes": 1533,
+      "topicTags": [
+        "Array",
+        "Two Pointers"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "remove-duplicates-from-sorted-array",
+          "title": "Remove Duplicates from Sorted Array",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:46.381Z"
+    },
+    "repeated-dna-sequences": {
+      "id": 187,
+      "title": "Repeated DNA Sequences",
+      "slug": "repeated-dna-sequences",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "54.0%",
+      "likes": 3681,
+      "dislikes": 576,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Bit Manipulation",
+        "Sliding Window",
+        "Rolling Hash",
+        "Hash Function",
+        "Z Algorithm",
+        "Boyer–Moore String-Search Algorithm"
+      ],
+      "hints": [],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:47.305Z"
+    },
+    "reverse-bits": {
+      "id": 190,
+      "title": "Reverse Bits",
+      "slug": "reverse-bits",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "69.3%",
+      "likes": 5978,
+      "dislikes": 1692,
+      "topicTags": [
+        "Divide and Conquer",
+        "Bit Manipulation"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "reverse-integer",
+          "title": "Reverse Integer",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "number-of-1-bits",
+          "title": "Number of 1 Bits",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "a-number-after-a-double-reversal",
+          "title": "A Number After a Double Reversal",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:48.179Z"
+    },
+    "reverse-vowels-of-a-string": {
+      "id": 345,
+      "title": "Reverse Vowels of a String",
+      "slug": "reverse-vowels-of-a-string",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "62.3%",
+      "likes": 5492,
+      "dislikes": 2867,
+      "topicTags": [
+        "Two Pointers",
+        "String"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "reverse-string",
+          "title": "Reverse String",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "remove-vowels-from-a-string",
+          "title": "Remove Vowels from a String",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "faulty-keyboard",
+          "title": "Faulty Keyboard",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sort-vowels-in-a-string",
+          "title": "Sort Vowels in a String",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:49.131Z"
+    },
+    "roman-to-integer": {
+      "id": 13,
+      "title": "Roman to Integer",
+      "slug": "roman-to-integer",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "67.2%",
+      "likes": 18077,
+      "dislikes": 1261,
+      "topicTags": [
+        "Hash Table",
+        "Math",
+        "String"
+      ],
+      "hints": [
+        "Problem is simpler to solve by working the string from back to front and using a map."
+      ],
+      "similar": [
+        {
+          "slug": "integer-to-roman",
+          "title": "Integer to Roman",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:50.019Z"
+    },
+    "rotting-oranges": {
+      "id": 994,
+      "title": "Rotting Oranges",
+      "slug": "rotting-oranges",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "59.4%",
+      "likes": 15589,
+      "dislikes": 487,
+      "topicTags": [
+        "Array",
+        "Breadth-First Search",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "walls-and-gates",
+          "title": "Walls and Gates",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "battleships-in-a-board",
+          "title": "Battleships in a Board",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "detonate-the-maximum-bombs",
+          "title": "Detonate the Maximum Bombs",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "escape-the-spreading-fire",
+          "title": "Escape the Spreading Fire",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:51.042Z"
+    },
+    "search-a-2d-matrix": {
+      "id": 74,
+      "title": "Search a 2D Matrix",
+      "slug": "search-a-2d-matrix",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "54.3%",
+      "likes": 18244,
+      "dislikes": 498,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "search-a-2d-matrix-ii",
+          "title": "Search a 2D Matrix II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "split-message-based-on-limit",
+          "title": "Split Message Based on Limit",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:53.499Z"
+    },
+    "search-in-rotated-sorted-array": {
+      "id": 33,
+      "title": "Search in Rotated Sorted Array",
+      "slug": "search-in-rotated-sorted-array",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "45.6%",
+      "likes": 30843,
+      "dislikes": 1847,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "search-in-rotated-sorted-array-ii",
+          "title": "Search in Rotated Sorted Array II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-minimum-in-rotated-sorted-array",
+          "title": "Find Minimum in Rotated Sorted Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "pour-water-between-buckets-to-make-water-levels-equal",
+          "title": "Pour Water Between Buckets to Make Water Levels Equal",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:54.427Z"
+    },
+    "search-in-rotated-sorted-array-ii": {
+      "id": 81,
+      "title": "Search in Rotated Sorted Array II",
+      "slug": "search-in-rotated-sorted-array-ii",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "40.5%",
+      "likes": 9867,
+      "dislikes": 1135,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "search-in-rotated-sorted-array",
+          "title": "Search in Rotated Sorted Array",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:56.024Z"
+    },
+    "search-insert-position": {
+      "id": 35,
+      "title": "Search Insert Position",
+      "slug": "search-insert-position",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "52.2%",
+      "likes": 19187,
+      "dislikes": 913,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "first-bad-version",
+          "title": "First Bad Version",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "minimum-operations-to-exceed-threshold-value-i",
+          "title": "Minimum Operations to Exceed Threshold Value I",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:56.886Z"
+    },
+    "set-mismatch": {
+      "id": 645,
+      "title": "Set Mismatch",
+      "slug": "set-mismatch",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "43.3%",
+      "likes": 5610,
+      "dislikes": 1457,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Bit Manipulation",
+        "Sorting"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "find-the-duplicate-number",
+          "title": "Find the Duplicate Number",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:45:57.790Z"
+    },
+    "single-element-in-a-sorted-array": {
+      "id": 540,
+      "title": "Single Element in a Sorted Array",
+      "slug": "single-element-in-a-sorted-array",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "59.4%",
+      "likes": 13335,
+      "dislikes": 255,
+      "topicTags": [
+        "Array",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:58.534Z"
+    },
+    "sort-an-array": {
+      "id": 912,
+      "title": "Sort an Array",
+      "slug": "sort-an-array",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "55.7%",
+      "likes": 7374,
+      "dislikes": 850,
+      "topicTags": [
+        "Array",
+        "Divide and Conquer",
+        "Sorting",
+        "Heap (Priority Queue)",
+        "Merge Sort",
+        "Bucket Sort",
+        "Radix Sort",
+        "Counting Sort"
+      ],
+      "hints": [],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:45:59.442Z"
+    },
+    "split-array-largest-sum": {
+      "id": 410,
+      "title": "Split Array Largest Sum",
+      "slug": "split-array-largest-sum",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "61.4%",
+      "likes": 11670,
+      "dislikes": 277,
+      "topicTags": [
+        "Array",
+        "Binary Search",
+        "Dynamic Programming",
+        "Greedy",
+        "Prefix Sum"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "capacity-to-ship-packages-within-d-days",
+          "title": "Capacity To Ship Packages Within D Days",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "divide-chocolate",
+          "title": "Divide Chocolate",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "fair-distribution-of-cookies",
+          "title": "Fair Distribution of Cookies",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "subsequence-of-size-k-with-the-largest-even-sum",
+          "title": "Subsequence of Size K With the Largest Even Sum",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "maximum-total-beauty-of-the-gardens",
+          "title": "Maximum Total Beauty of the Gardens",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "number-of-ways-to-split-array",
+          "title": "Number of Ways to Split Array",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "minimum-cost-to-split-an-array",
+          "title": "Minimum Cost to Split an Array",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "distribute-elements-into-two-arrays-i",
+          "title": "Distribute Elements Into Two Arrays I",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "distribute-elements-into-two-arrays-ii",
+          "title": "Distribute Elements Into Two Arrays II",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:00.461Z"
+    },
+    "sqrtx": {
+      "id": 69,
+      "title": "Sqrt(x)",
+      "slug": "sqrtx",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "42.3%",
+      "likes": 9955,
+      "dislikes": 4655,
+      "topicTags": [
+        "Math",
+        "Binary Search",
+        "Newton's Method"
+      ],
+      "hints": [
+        "Try exploring all integers. (Credits: @annujoshi)",
+        "Use the sorted property of integers to reduced the search space. (Credits: @annujoshi)"
+      ],
+      "similar": [
+        {
+          "slug": "powx-n",
+          "title": "Pow(x, n)",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "valid-perfect-square",
+          "title": "Valid Perfect Square",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:01.205Z"
+    },
+    "subarrays-with-k-different-integers": {
+      "id": 992,
+      "title": "Subarrays with K Different Integers",
+      "slug": "subarrays-with-k-different-integers",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "69.0%",
+      "likes": 7148,
+      "dislikes": 128,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Sliding Window",
+        "Counting"
+      ],
+      "hints": [
+        "Try generating all possible subarrays and check for the number of unique integers. Increment the count accordingly.",
+        "How about using a map to store the count of integers?",
+        "Think about the Sliding Window and 2-pointer approach."
+      ],
+      "similar": [
+        {
+          "slug": "longest-substring-without-repeating-characters",
+          "title": "Longest Substring Without Repeating Characters",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-substring-with-at-most-two-distinct-characters",
+          "title": "Longest Substring with At Most Two Distinct Characters",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-substring-with-at-most-k-distinct-characters",
+          "title": "Longest Substring with At Most K Distinct Characters",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-vowel-substrings-of-a-string",
+          "title": "Count Vowel Substrings of a String",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "number-of-unique-flavors-after-sharing-k-candies",
+          "title": "Number of Unique Flavors After Sharing K Candies",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "k-divisible-elements-subarrays",
+          "title": "K Divisible Elements Subarrays",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-complete-subarrays-in-an-array",
+          "title": "Count Complete Subarrays in an Array",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:01.986Z"
+    },
+    "subsets": {
+      "id": 78,
+      "title": "Subsets",
+      "slug": "subsets",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "82.8%",
+      "likes": 19523,
+      "dislikes": 350,
+      "topicTags": [
+        "Array",
+        "Backtracking",
+        "Bit Manipulation"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "subsets-ii",
+          "title": "Subsets II",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "generalized-abbreviation",
+          "title": "Generalized Abbreviation",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "letter-case-permutation",
+          "title": "Letter Case Permutation",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-array-given-subset-sums",
+          "title": "Find Array Given Subset Sums",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "count-number-of-maximum-bitwise-or-subsets",
+          "title": "Count Number of Maximum Bitwise-OR Subsets",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:02.921Z"
+    },
+    "subsets-ii": {
+      "id": 90,
+      "title": "Subsets II",
+      "slug": "subsets-ii",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "62.0%",
+      "likes": 11158,
+      "dislikes": 422,
+      "topicTags": [
+        "Array",
+        "Backtracking",
+        "Bit Manipulation"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "subsets",
+          "title": "Subsets",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-array-given-subset-sums",
+          "title": "Find Array Given Subset Sums",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:03.746Z"
+    },
+    "substrings-of-size-three-with-distinct-characters": {
+      "id": 1876,
+      "title": "Substrings of Size Three with Distinct Characters",
+      "slug": "substrings-of-size-three-with-distinct-characters",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "77.2%",
+      "likes": 1735,
+      "dislikes": 58,
+      "topicTags": [
+        "Hash Table",
+        "String",
+        "Sliding Window",
+        "Counting"
+      ],
+      "hints": [
+        "Try using a set to find out the number of distinct characters in a substring."
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:46:04.663Z"
+    },
+    "sudoku-solver": {
+      "id": 37,
+      "title": "Sudoku Solver",
+      "slug": "sudoku-solver",
+      "difficulty": "Hard",
+      "paidOnly": false,
+      "acRate": "65.6%",
+      "likes": 11325,
+      "dislikes": 350,
+      "topicTags": [
+        "Array",
+        "Hash Table",
+        "Backtracking",
+        "Matrix",
+        "Algorithm X",
+        "Dancing Links"
+      ],
+      "hints": [
+        "For each cell, place a valid number and try solving for the remaining empty cells.",
+        "If stuck, undo (backtrack) and try another valid number."
+      ],
+      "similar": [
+        {
+          "slug": "valid-sudoku",
+          "title": "Valid Sudoku",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "unique-paths-iii",
+          "title": "Unique Paths III",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:05.402Z"
+    },
+    "sum-of-all-odd-length-subarrays": {
+      "id": 1588,
+      "title": "Sum of All Odd Length Subarrays",
+      "slug": "sum-of-all-odd-length-subarrays",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "84.2%",
+      "likes": 3946,
+      "dislikes": 332,
+      "topicTags": [
+        "Array",
+        "Math",
+        "Prefix Sum"
+      ],
+      "hints": [
+        "You can brute force – try every (i,j) pair, and if the length is odd, go through and add the sum to the answer."
+      ],
+      "similar": [
+        {
+          "slug": "sum-of-squares-of-special-elements",
+          "title": "Sum of Squares of Special Elements ",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:06.210Z"
+    },
+    "sum-of-all-subset-xor-totals": {
+      "id": 1863,
+      "title": "Sum of All Subset XOR Totals",
+      "slug": "sum-of-all-subset-xor-totals",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "90.1%",
+      "likes": 2739,
+      "dislikes": 360,
+      "topicTags": [
+        "Array",
+        "Math",
+        "Backtracking",
+        "Bit Manipulation",
+        "Combinatorics",
+        "Enumeration"
+      ],
+      "hints": [
+        "Is there a way to iterate through all the subsets of the array?",
+        "Can we use recursion to efficiently iterate through all the subsets?"
+      ],
+      "similar": [],
+      "fetchedAt": "2026-09-10T18:46:07.305Z"
+    },
+    "summary-ranges": {
+      "id": 228,
+      "title": "Summary Ranges",
+      "slug": "summary-ranges",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "54.7%",
+      "likes": 4616,
+      "dislikes": 2398,
+      "topicTags": [
+        "Array"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "missing-ranges",
+          "title": "Missing Ranges",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "data-stream-as-disjoint-intervals",
+          "title": "Data Stream as Disjoint Intervals",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "find-maximal-uncovered-ranges",
+          "title": "Find Maximal Uncovered Ranges",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:08.299Z"
+    },
+    "surrounded-regions": {
+      "id": 130,
+      "title": "Surrounded Regions",
+      "slug": "surrounded-regions",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "46.2%",
+      "likes": 10112,
+      "dislikes": 2263,
+      "topicTags": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union-Find",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "number-of-islands",
+          "title": "Number of Islands",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "walls-and-gates",
+          "title": "Walls and Gates",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:09.167Z"
+    },
+    "two-sum": {
+      "id": 1,
+      "title": "Two Sum",
+      "slug": "two-sum",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "58.1%",
+      "likes": 70080,
+      "dislikes": 2618,
+      "topicTags": [
+        "Array",
+        "Hash Table"
+      ],
+      "hints": [
+        "A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions just for completeness. It is from these brute force solutions that you can come up with optimizations.",
+        "So, if we fix one of the numbers, say <code>x</code>, we have to scan the entire array to find the next number <code>y</code> which is <code>value - x</code> where value is the input parameter. Can we change our array somehow so that this search becomes faster?",
+        "The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?"
+      ],
+      "similar": [
+        {
+          "slug": "3sum",
+          "title": "3Sum",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "4sum",
+          "title": "4Sum",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "two-sum-ii-input-array-is-sorted",
+          "title": "Two Sum II - Input Array Is Sorted",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "two-sum-iii-data-structure-design",
+          "title": "Two Sum III - Data structure design",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "subarray-sum-equals-k",
+          "title": "Subarray Sum Equals K",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "two-sum-iv-input-is-a-bst",
+          "title": "Two Sum IV - Input is a BST",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "two-sum-less-than-k",
+          "title": "Two Sum Less Than K",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "max-number-of-k-sum-pairs",
+          "title": "Max Number of K-Sum Pairs",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-good-meals",
+          "title": "Count Good Meals",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "count-number-of-pairs-with-absolute-difference-k",
+          "title": "Count Number of Pairs With Absolute Difference K",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "number-of-pairs-of-strings-with-concatenation-equal-to-target",
+          "title": "Number of Pairs of Strings With Concatenation Equal to Target",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "find-all-k-distant-indices-in-an-array",
+          "title": "Find All K-Distant Indices in an Array",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "first-letter-to-appear-twice",
+          "title": "First Letter to Appear Twice",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "number-of-excellent-pairs",
+          "title": "Number of Excellent Pairs",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "number-of-arithmetic-triplets",
+          "title": "Number of Arithmetic Triplets",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "node-with-highest-edge-score",
+          "title": "Node With Highest Edge Score",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "check-distances-between-same-letters",
+          "title": "Check Distances Between Same Letters",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "find-subarrays-with-equal-sum",
+          "title": "Find Subarrays With Equal Sum",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "largest-positive-integer-that-exists-with-its-negative",
+          "title": "Largest Positive Integer That Exists With Its Negative",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "number-of-distinct-averages",
+          "title": "Number of Distinct Averages",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "count-pairs-whose-sum-is-less-than-target",
+          "title": "Count Pairs Whose Sum is Less than Target",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:09.941Z"
+    },
+    "two-sum-ii-input-array-is-sorted": {
+      "id": 167,
+      "title": "Two Sum II - Input Array Is Sorted",
+      "slug": "two-sum-ii-input-array-is-sorted",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "65.8%",
+      "likes": 13843,
+      "dislikes": 1546,
+      "topicTags": [
+        "Array",
+        "Two Pointers",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "two-sum",
+          "title": "Two Sum",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "two-sum-iv-input-is-a-bst",
+          "title": "Two Sum IV - Input is a BST",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "two-sum-less-than-k",
+          "title": "Two Sum Less Than K",
+          "difficulty": "Easy"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:10.908Z"
+    },
+    "valid-parentheses": {
+      "id": 20,
+      "title": "Valid Parentheses",
+      "slug": "valid-parentheses",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "44.9%",
+      "likes": 28467,
+      "dislikes": 2029,
+      "topicTags": [
+        "String",
+        "Stack",
+        "Bracket Sequences"
+      ],
+      "hints": [
+        "Use a stack of characters.",
+        "When you encounter an opening bracket, push it to the top of the stack.",
+        "When you encounter a closing bracket, check if the top of the stack was the opening for it. If yes, pop it from the stack. Otherwise, return false."
+      ],
+      "similar": [
+        {
+          "slug": "generate-parentheses",
+          "title": "Generate Parentheses",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "longest-valid-parentheses",
+          "title": "Longest Valid Parentheses",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "remove-invalid-parentheses",
+          "title": "Remove Invalid Parentheses",
+          "difficulty": "Hard"
+        },
+        {
+          "slug": "check-if-word-is-valid-after-substitutions",
+          "title": "Check If Word Is Valid After Substitutions",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "check-if-a-parentheses-string-can-be-valid",
+          "title": "Check if a Parentheses String Can Be Valid",
+          "difficulty": "Medium"
+        },
+        {
+          "slug": "move-pieces-to-obtain-a-string",
+          "title": "Move Pieces to Obtain a String",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:11.932Z"
+    },
+    "valid-perfect-square": {
+      "id": 367,
+      "title": "Valid Perfect Square",
+      "slug": "valid-perfect-square",
+      "difficulty": "Easy",
+      "paidOnly": false,
+      "acRate": "45.1%",
+      "likes": 4745,
+      "dislikes": 339,
+      "topicTags": [
+        "Math",
+        "Binary Search"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "sqrtx",
+          "title": "Sqrt(x)",
+          "difficulty": "Easy"
+        },
+        {
+          "slug": "sum-of-square-numbers",
+          "title": "Sum of Square Numbers",
+          "difficulty": "Medium"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:12.753Z"
+    },
+    "word-search": {
+      "id": 79,
+      "title": "Word Search",
+      "slug": "word-search",
+      "difficulty": "Medium",
+      "paidOnly": false,
+      "acRate": "48.1%",
+      "likes": 17975,
+      "dislikes": 762,
+      "topicTags": [
+        "Array",
+        "String",
+        "Backtracking",
+        "Depth-First Search",
+        "Matrix"
+      ],
+      "hints": [],
+      "similar": [
+        {
+          "slug": "word-search-ii",
+          "title": "Word Search II",
+          "difficulty": "Hard"
+        }
+      ],
+      "fetchedAt": "2026-09-10T18:46:13.539Z"
+    }
+  },
+  "fetchedAt": "2026-09-10T18:46:13.539Z"
+}

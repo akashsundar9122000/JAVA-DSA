@@ -1,0 +1,415 @@
+{
+  "byId": {},
+  "meta": {
+    "0sWShKIJoo4": {
+      "title": "Longest Common Prefix - Leetcode 14 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/0sWShKIJoo4/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:40.406Z"
+    },
+    "0snEunUacZY": {
+      "title": "Letter Combinations of a Phone Number - Backtracking - Leetcode 17",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/0snEunUacZY/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:40.610Z"
+    },
+    "1pkOgXD63yU": {
+      "title": "Sliding Window: Best Time to Buy and Sell Stock - Leetcode 121 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/1pkOgXD63yU/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:40.807Z"
+    },
+    "2pndAmo_sMA": {
+      "title": "Range Sum Query Immutable - Leetcode 303 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/2pndAmo_sMA/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:41.003Z"
+    },
+    "3jdxYj3DD98": {
+      "title": "Roman to Integer - Leetcode 13 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/3jdxYj3DD98/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:41.195Z"
+    },
+    "4sQL7R5ySUU": {
+      "title": "First and Last Position of Element in Sorted Array - Binary Search - Leetcode 34",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/4sQL7R5ySUU/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:41.391Z"
+    },
+    "5Km3utixwZs": {
+      "title": "Number of 1 Bits - Leetcode 191 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/5Km3utixwZs/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:41.582Z"
+    },
+    "5rHz_6s2Buw": {
+      "title": "Arranging Coins - Leetcode 441 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/5rHz_6s2Buw/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:41.772Z"
+    },
+    "68a1Dc_qVq4": {
+      "title": "Next Greater Element I - Leetcode 496 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/68a1Dc_qVq4/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:41.974Z"
+    },
+    "8g78yfzMlao": {
+      "title": "First Missing Positive - Leetcode 41 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/8g78yfzMlao/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:42.165Z"
+    },
+    "8i-f24YFWC4": {
+      "title": "Find All Numbers Disappeared in an Array - Leetcode 448 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/8i-f24YFWC4/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:42.357Z"
+    },
+    "99RVfqklbCE": {
+      "title": "Is Subsequence - Leetcode 392",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/99RVfqklbCE/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:42.543Z"
+    },
+    "9z2BunfoZ5Y": {
+      "title": "Surrounded Regions - Graph - Leetcode 130 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/9z2BunfoZ5Y/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:42.750Z"
+    },
+    "Akt3glAwyfY": {
+      "title": "Course Schedule II - Topological Sort - Leetcode 210",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/Akt3glAwyfY/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:42.947Z"
+    },
+    "Ber2pi2C0j0": {
+      "title": "Search a 2D Matrix - Leetcode 74 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/Ber2pi2C0j0/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:43.145Z"
+    },
+    "Cg_wWPHJ2Sk": {
+      "title": "Valid Perfect Square - Leetcode 367 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/Cg_wWPHJ2Sk/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:43.345Z"
+    },
+    "DEJAZBq0FDA": {
+      "title": "Remove Duplicates from Sorted Array - Leetcode 26 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/DEJAZBq0FDA/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:43.533Z"
+    },
+    "EgI5nU9etnU": {
+      "title": "Course Schedule - Graph Adjacency List - Leetcode 207",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/EgI5nU9etnU/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:43.724Z"
+    },
+    "FzTYfsmtOso": {
+      "title": "Repeated DNA Sequences - Leetcode 187 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/FzTYfsmtOso/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:43.922Z"
+    },
+    "GBKI9VSKdGg": {
+      "title": "Combination Sum - Backtracking - Leetcode 39 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/GBKI9VSKdGg/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:44.115Z"
+    },
+    "HGtqdzyUJ3k": {
+      "title": "Single Element in a Sorted Array - Leetcode 540 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/HGtqdzyUJ3k/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:44.309Z"
+    },
+    "JU5XdBZZtlk": {
+      "title": "Minimum Difference Between Highest and Lowest of K Scores - Leetcode Weekly Contest - 1984 Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/JU5XdBZZtlk/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:44.506Z"
+    },
+    "K-RYzDZkzCI": {
+      "title": "Search Insert Position - Binary Search - Leetcode 35 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/K-RYzDZkzCI/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:44.719Z"
+    },
+    "KLlXCFG5TnA": {
+      "title": "Two Sum - Leetcode 1 - HashMap - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/KLlXCFG5TnA/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:44.928Z"
+    },
+    "MsYZSinhuFo": {
+      "title": "Sort an Array - Leetcode 912 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/MsYZSinhuFo/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:45.123Z"
+    },
+    "Ph95IHmRp5M": {
+      "title": "N-Queens - Backtracking - Leetcode 51 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/Ph95IHmRp5M/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:45.315Z"
+    },
+    "REOH22Xwdkk": {
+      "title": "Subsets - Backtracking - Leetcode 78",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/REOH22Xwdkk/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:45.556Z"
+    },
+    "Re_v0j0CRsg": {
+      "title": "Find Eventual Safe States - Leetcode 802 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/Re_v0j0CRsg/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:45.742Z"
+    },
+    "RyBM56RIWrM": {
+      "title": "Counting Bits - Dynamic Programming - Leetcode 338 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/RyBM56RIWrM/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:45.929Z"
+    },
+    "U8XENwh8Oy8": {
+      "title": "Search in rotated sorted array - Leetcode 33 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/U8XENwh8Oy8/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:46.118Z"
+    },
+    "UbyhOgBN834": {
+      "title": "Permutation in String - Leetcode 567 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/UbyhOgBN834/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:46.385Z"
+    },
+    "UcoN6UjAI64": {
+      "title": "Reverse Bits - Binary - Leetcode 190 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/UcoN6UjAI64/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:46.574Z"
+    },
+    "Vn2v6ajA7U0": {
+      "title": "Subsets II - Backtracking - Leetcode 90 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/Vn2v6ajA7U0/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:46.771Z"
+    },
+    "WTzjTskDFMg": {
+      "title": "Valid Parentheses - Stack - Leetcode 20 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/WTzjTskDFMg/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:46.963Z"
+    },
+    "WnPLSRLSANE": {
+      "title": "Missing Number - Blind 75 - Leetcode 268 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/WnPLSRLSANE/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:47.209Z"
+    },
+    "XYQecbcd6_c": {
+      "title": "Longest Palindromic Substring - Python - Leetcode 5",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/XYQecbcd6_c/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:47.402Z"
+    },
+    "YUF3_eBdzsk": {
+      "title": "Split Array Largest Sum - Leetcode 410 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/YUF3_eBdzsk/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:47.599Z"
+    },
+    "aBbsfn863oA": {
+      "title": "Design Circular Queue - Leetcode 622 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/aBbsfn863oA/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:47.792Z"
+    },
+    "aYqYMIqZx5s": {
+      "title": "Minimum Size Subarray Sum - Leetcode 209 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/aYqYMIqZx5s/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:47.985Z"
+    },
+    "aayNRwUN3Do": {
+      "title": "Move Zeroes - Leetcode 283 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/aayNRwUN3Do/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:48.177Z"
+    },
+    "cQ1Oz4ckceM": {
+      "title": "TWO SUM II - Amazon Coding Interview Question - Leetcode 167 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/cQ1Oz4ckceM/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:48.375Z"
+    },
+    "d4SPuvkaeoo": {
+      "title": "Maximum Length of a Concatenated String with Unique Characters - Leetcode 1239 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/d4SPuvkaeoo/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:48.561Z"
+    },
+    "fISIuAFRM2s": {
+      "title": "Island Perimeter - Graph - Leetcode 463",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/fISIuAFRM2s/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:48.764Z"
+    },
+    "g9YQyYi4IQQ": {
+      "title": "Pow(x, n) - X to the power of N - Leetcode 50 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/g9YQyYi4IQQ/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:48.975Z"
+    },
+    "gf0zsh1FIgE": {
+      "title": "Number of Enclaves - Leetcode 1020 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/gf0zsh1FIgE/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:49.175Z"
+    },
+    "gqXU1UyA8pk": {
+      "title": "Longest Repeating Character Replacement - Leetcode 424 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/gqXU1UyA8pk/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:49.365Z"
+    },
+    "iu0082c4HDE": {
+      "title": "Evaluate Reverse Polish Notation - Leetcode 150 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/iu0082c4HDE/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:49.550Z"
+    },
+    "jIaA8boiG1s": {
+      "title": "Plus One - Leetcode 66 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/jIaA8boiG1s/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:49.734Z"
+    },
+    "jSto0O4AJbM": {
+      "title": "Minimum Window Substring - Airbnb Interview Question - Leetcode 76",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/jSto0O4AJbM/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:49.921Z"
+    },
+    "kEfPSzgL-Ss": {
+      "title": "Maximum Number of Vowels in a Substring of Given Length - Leetcode 1456 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/kEfPSzgL-Ss/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:50.106Z"
+    },
+    "ljz85bxOYJ0": {
+      "title": "Happy Number - Leetcode 202 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/ljz85bxOYJ0/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:50.297Z"
+    },
+    "mev55LTubBY": {
+      "title": "Is Graph Bipartite? - Leetcode 785 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/mev55LTubBY/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:50.498Z"
+    },
+    "nalYyLZgvCY": {
+      "title": "N-Queens II - Leetcode 52 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/nalYyLZgvCY/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:50.696Z"
+    },
+    "oUnF7o88_Xc": {
+      "title": "Search in Rotated Sorted Array II - Leetcode 81 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/oUnF7o88_Xc/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:50.881Z"
+    },
+    "pV2kpPD66nE": {
+      "title": "NUMBER OF ISLANDS - Leetcode 200 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/pV2kpPD66nE/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:51.073Z"
+    },
+    "pfiQ_PS1g8E": {
+      "title": "Word Search - Backtracking - Leetcode 79 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/pfiQ_PS1g8E/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:51.262Z"
+    },
+    "q6IEA26hvXc": {
+      "title": "Median of Two Sorted Arrays - Binary Search - Leetcode 4",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/q6IEA26hvXc/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:51.446Z"
+    },
+    "qhBVWf0YafA": {
+      "title": "Permutations II - Backtracking - Leetcode 47",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/qhBVWf0YafA/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:51.630Z"
+    },
+    "s4DPM8ct1pI": {
+      "title": "Binary Search - Leetcode 704 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/s4DPM8ct1pI/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:51.858Z"
+    },
+    "s7AvT7cGdSo": {
+      "title": "Backtracking: Permutations - Leetcode 46 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/s7AvT7cGdSo/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:52.050Z"
+    },
+    "u89i60lYx8U": {
+      "title": "Find Pivot Index - Leetcode 724 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/u89i60lYx8U/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:52.264Z"
+    },
+    "vzdNOK2oB2E": {
+      "title": "Group Anagrams - Categorize Strings by Count - Leetcode 49",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/vzdNOK2oB2E/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:52.463Z"
+    },
+    "wjYnzkAhcNk": {
+      "title": "Find the Duplicate Number - Floyd's Cycle Detection - Leetcode 287 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/wjYnzkAhcNk/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:52.666Z"
+    },
+    "xW4QsTtaCa4": {
+      "title": "Guess Number Higher or Lower - Leetcode 374 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/xW4QsTtaCa4/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:52.863Z"
+    },
+    "y704fEOx0s0": {
+      "title": "Rotting Oranges - Leetcode 994 - Python",
+      "channel": "NeetCode",
+      "thumbnail": "https://i.ytimg.com/vi/y704fEOx0s0/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:53.070Z"
+    },
+    "yYtaV0G3mWQ": {
+      "title": "Fruits into Basket - Leetcode 904 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/yYtaV0G3mWQ/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:53.261Z"
+    },
+    "ycAq8iqh0TI": {
+      "title": "Remove Duplicates from Sorted Array II - Leetcode 80 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/ycAq8iqh0TI/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:53.446Z"
+    },
+    "zdMhGxRWutQ": {
+      "title": "Sqrt(x) - Leetcode 69 - Python",
+      "channel": "NeetCodeIO",
+      "thumbnail": "https://i.ytimg.com/vi/zdMhGxRWutQ/hqdefault.jpg",
+      "verifiedAt": "2026-09-10T19:15:53.636Z"
+    }
+  },
+  "verifiedAt": "2026-09-10T19:16:05.617Z",
+  "deadIds": []
+}
