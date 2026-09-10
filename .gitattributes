@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Generated build product: diff noise, not source.
+docs/data.json -diff linguist-generated=true

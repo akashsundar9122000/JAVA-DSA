@@ -1,0 +1,18 @@
+{
+  "name": "java-dsa-deck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static revision site generated from the Java DSA sources in src/",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/generate.mjs",
+    "test": "node tools/generate.mjs --selftest",
+    "check": "node tools/generate.mjs --check",
+    "titles": "node tools/generate.mjs --audit-titles",
+    "stubs": "node tools/generate.mjs --stubs",
+    "icons": "node tools/make-icons.mjs",
+    "index": "node tools/fetch-index.mjs",
+    "serve": "cd docs && python3 -m http.server 8899"
+  },
+  "engines": { "node": ">=18" }
+}

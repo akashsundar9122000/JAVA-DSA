@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Java DSA Revision Deck</title>
+<meta name="description" content="Offline revision deck for 189 solved Java DSA problems — statements, notes, solutions and spaced repetition.">
+<meta name="theme-color" content="#0f1216">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <button class="iconbtn railtoggle" type="button" data-act="toggle-rail" aria-label="Categories" aria-expanded="false">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+  </button>
+
+  <a class="brand" href="#/today">
+    <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+    <span class="brand-text">
+      <b>JAVA&#8239;·&#8239;DSA</b>
+      <small id="brand-sub">revision deck</small>
+    </span>
+  </a>
+
+  <div class="search">
+    <svg class="search-ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4"/></svg>
+    <input id="q" type="search" placeholder="Search problems, #id, code…" autocomplete="off" spellcheck="false" aria-label="Search problems">
+    <kbd class="search-kbd">/</kbd>
+  </div>
+
+  <div class="topbar-right">
+    <button class="iconbtn" type="button" data-act="random" title="Random problem (r)" aria-label="Random problem">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6h5l7 8h1M4 14h5l7-8h1"/><path d="M14 3l3 3-3 3M14 11l3 3-3 3"/></svg>
+    </button>
+    <button class="iconbtn" type="button" data-act="theme" title="Theme" aria-label="Switch theme">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="4.2"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.5 4.5l1.4 1.4M14.1 14.1l1.4 1.4M15.5 4.5l-1.4 1.4M5.9 14.1L4.5 15.5"/></svg>
+    </button>
+    <button class="iconbtn" type="button" data-act="help" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.3 7.3a2.8 2.8 0 115.4 1c0 1.9-2.7 2.2-2.7 4"/><circle cx="10" cy="15.6" r=".9" fill="currentColor" stroke="none"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Categories">
+    <div class="rail-scroll" id="rail-list"></div>
+  </nav>
+
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+
+<nav class="tabbar" aria-label="Sections">
+  <a href="#/today" data-tab="today">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14v11H3zM3 9h14M7 3v3M13 3v3"/></svg>
+    <span>Today</span><i class="tabdot" id="tab-due"></i>
+  </a>
+  <a href="#/browse" data-tab="browse">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h9"/></svg>
+    <span>Browse</span>
+  </a>
+  <a href="#/cards" data-tab="cards">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4h11v9H6zM3 7v9h11"/></svg>
+    <span>Cards</span>
+  </a>
+  <a href="#/stats" data-tab="stats">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16V9M8.7 16V4M13.3 16v-5M18 16V7"/></svg>
+    <span>Progress</span>
+  </a>
+</nav>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-back" data-act="close-sheet"></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-head">
+      <h2 id="sheet-title">Keyboard shortcuts</h2>
+      <button class="iconbtn" type="button" data-act="close-sheet" aria-label="Close">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

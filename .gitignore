@@ -1,0 +1,19 @@
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Compiled output
+out/
+build/
+bin/
+target/
+*.class
+
+# macOS
+.DS_Store
+
+# The single-file Artifact bundle is a build product of `npm run build`.
+# It is ~950 KB of inlined data and would bloat history on every rebuild.
+docs/bundle.html
