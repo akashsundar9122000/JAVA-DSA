@@ -9,7 +9,7 @@
 
 const THUMB_CACHE_MAX = 240;   // ~1 thumbnail per problem, capped so it cannot grow forever
 
-const VERSION = 'b3b1395-lqf1';
+const VERSION = '7d66c75-lqfc';
 const CACHE = `dsa-deck-${VERSION}`;
 // Thumbnails live outside the versioned cache: they are immutable per video id,
 // so a redeploy has no reason to throw them away.

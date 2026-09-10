@@ -452,6 +452,14 @@ const patternName = (id) => app.patternById.get(id)?.name ?? id;
 // --- video -----------------------------------------------------------------
 
 const YT_THUMB = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+
+/**
+ * The single-file bundle runs inside a sandbox whose content policy blocks
+ * third-party iframes AND third-party images, so both the player and its
+ * poster would fail there. Detect it and render an honest link card instead of
+ * a facade that cannot work. The hosted site is unaffected.
+ */
+const BUNDLED = typeof window !== 'undefined' && !!window.__DECK_DATA__;
 const YT_SEARCH = (q) => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
 
 /**
@@ -460,6 +468,16 @@ const YT_SEARCH = (q) => `https://www.youtube.com/results?search_query=${encodeU
  * of problems stays cheap on a phone.
  */
 function player(v, { watched = false } = {}) {
+  if (BUNDLED) {
+    return `<div class="video">
+      <a class="cov" style="display:block" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
+        <div class="cov-k">${esc(v.channel ?? 'YouTube')}${v.kind === 'concept' ? ' · topic explainer' : ''}</div>
+        <div style="font:500 13.5px/1.4 var(--sans);margin:3px 0 4px">${esc(v.title ?? 'Watch the explanation')}</div>
+        <div class="cov-s">Opens on YouTube — this offline copy cannot embed video. The hosted site plays it inline.</div>
+      </a>
+    </div>`;
+  }
+
   const offline = !navigator.onLine;
   return `<div class="video">
     <div class="vframe" data-vid="${v.id}">
@@ -964,7 +982,12 @@ function viewLearn() {
       </div>
 
       <div class="plcard-body">
-        ${pl ? `<div class="vframe" data-vid="pl-${pt.id}">
+        ${pl && BUNDLED ? `<a class="cov" style="display:block" href="https://www.youtube.com/playlist?list=${pl.playlistId}" target="_blank" rel="noopener">
+            <div class="cov-k">${esc(pl.verifiedChannel ?? pl.channel ?? '')}</div>
+            <div style="font:500 13px/1.4 var(--sans);margin:3px 0 4px">${esc(pl.verifiedTitle ?? pt.name)}</div>
+            <div class="cov-s">Opens on YouTube — this offline copy cannot embed playlists.</div>
+          </a>` : ''}
+        ${pl && !BUNDLED ? `<div class="vframe" data-vid="pl-${pt.id}">
             <button class="vposter" type="button" data-act="play-list" data-pl="${pl.playlistId}" aria-label="Play playlist: ${esc(pl.verifiedTitle ?? pt.name)}">
               ${pl.posterVideoId ? `<img src="${YT_THUMB(pl.posterVideoId)}" alt="" loading="lazy" decoding="async" width="480" height="360">` : ''}
               <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
