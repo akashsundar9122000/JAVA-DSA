@@ -5,22 +5,11 @@
 *.ipr
 
 # Compiled output
-out/
-build/
-bin/
-target/
+/out/
+/build/
+/bin/
+/target/
 *.class
 
 # macOS
 .DS_Store
-
-# The single-file Artifact bundle is a build product of `npm run build`.
-# It is ~950 KB of inlined data and would bloat history on every rebuild.
-docs/bundle.html
-
-# Local credentials — YouTube API key and LeetCode username.
-# Never commit this; tools/data/secrets.example.json is the template.
-tools/data/secrets.json
-
-# Local dev harnesses (seeded progress, layout probes) — never shipped.
-docs/_*.html
